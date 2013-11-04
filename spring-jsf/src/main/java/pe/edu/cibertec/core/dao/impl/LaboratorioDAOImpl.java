@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,31 +20,37 @@ public class LaboratorioDAOImpl  implements LaboratorioDAO {
 	@Override
 	public void save(Laboratorio laboratorio) {
 		logger.info("SAVE");
+		em.persist(laboratorio);
 
 	}
 
 	@Override
 	public void update(Laboratorio laboratorio) {
 		logger.info("UPDATE");
+		em.merge(laboratorio);
 
 	}
 
 	@Override
 	public Laboratorio get(Laboratorio laboratorio) {
 		logger.info("GET");
-		return null;
+		return (Laboratorio)em.find(Laboratorio.class, laboratorio.getLaboratorioId());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Laboratorio> getAll() {
 		logger.info("GET ALL");
-		return null;
+		Query q = em.createQuery("select l from Laboratorio l");
+        return q.getResultList();
+		
 	}
 
 	@Override
 	public void delete(Laboratorio laboratorio) {
-		logger.info("DELETE");
-
+		logger.info("DELETE: "+laboratorio.getLaboratorioId());
+		em.remove(laboratorio);
+		
 	}
 
 }
