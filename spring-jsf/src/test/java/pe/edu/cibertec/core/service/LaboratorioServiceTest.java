@@ -1,5 +1,7 @@
 package pe.edu.cibertec.core.service;
 
-public class LaboratorioServiceTest {
+import pe.edu.cibertec.common.AbstractJunitTest;
+
+public class LaboratorioServiceTest extends AbstractJunitTest{
 
 }

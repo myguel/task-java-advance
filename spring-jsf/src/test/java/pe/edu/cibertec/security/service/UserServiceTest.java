@@ -1,5 +1,7 @@
 package pe.edu.cibertec.security.service;
 
-public class UserServiceTest {
+import pe.edu.cibertec.common.AbstractJunitTest;
+
+public class UserServiceTest  extends AbstractJunitTest{
 
 }
