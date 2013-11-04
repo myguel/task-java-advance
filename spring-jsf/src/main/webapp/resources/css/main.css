@@ -1,0 +1,8 @@
+@CHARSET "ISO-8859-1";
+/*para los iconos*/
+
+.icon-delete{background-image: url("../img/icon-delete.png"); }
+.icon-edit{background-image: url("../img/icon-edit.png"); }
+.icon-login{background-image: url("../img/icon-login.png"); }
+.icon-logout{background-image: url("../img/icon-logut.png"); }
+.icon-save{background-image: url("../img/icon-save.png"); }
