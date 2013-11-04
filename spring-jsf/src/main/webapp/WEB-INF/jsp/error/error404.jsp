@@ -7,6 +7,6 @@
 <title>Error</title>
 </head>
 <body>
-Sucedio un error xD :: ${error}
+Sucedio un error :: ${error}
 </body>
 </html>
