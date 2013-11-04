@@ -1,4 +1,4 @@
-package pe.edu.cibertec.service;
+package pe.edu.cibertec.core.service;
 
 public class LaboratorioServiceTest {
 

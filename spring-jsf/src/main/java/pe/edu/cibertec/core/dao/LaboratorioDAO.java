@@ -1,4 +1,4 @@
-package pe.edu.cibertec.dao;
+package pe.edu.cibertec.core.dao;
 
 public interface LaboratorioDAO {
 
