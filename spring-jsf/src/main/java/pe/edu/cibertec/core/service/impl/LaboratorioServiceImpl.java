@@ -2,6 +2,8 @@ package pe.edu.cibertec.core.service.impl;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -14,11 +16,13 @@ import pe.edu.cibertec.core.service.LaboratorioService;
 @Transactional(readOnly=true,propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
 public class LaboratorioServiceImpl implements LaboratorioService {
 
+	private static final Logger logger=LoggerFactory.getLogger(LaboratorioServiceImpl.class);
 	@Autowired
 	private LaboratorioDAO laboratorioDAO;
 	@Override
 	@Transactional(readOnly=false,propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
 	public void save(Laboratorio laboratorio) {
+		logger.info("save");
 		laboratorioDAO.save(laboratorio);
 		
 	}
