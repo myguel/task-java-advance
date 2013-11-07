@@ -8,6 +8,7 @@
 		<class>pe.edu.cibertec.core.domain.Laboratorio</class>
 		<class>pe.edu.cibertec.core.domain.Profesor</class>
 		<class>pe.edu.cibertec.core.domain.Programa</class>
+		<class>pe.edu.cibertec.security.domain.Usuario</class>
 		<properties>
 			<property name="eclipselink.weaving" value="false" />
 		</properties>

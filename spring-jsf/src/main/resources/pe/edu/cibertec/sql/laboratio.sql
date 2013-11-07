@@ -1,3 +1,13 @@
+DROP TABLE IF EXISTS usuario;
+CREATE TABLE usuario(
+usuario_id integer NOT NULL AUTO_INCREMENT, 
+nombre varchar(100) not null,
+usuario_login varchar(50) not null,
+usuario_password varchar(100) not null,
+constraint pk_usuario primary key(usuario_id)
+);
+
+
 DROP TABLE IF EXISTS programa;
 CREATE TABLE programa(
 programa_id integer not null AUTO_INCREMENT,
@@ -5,6 +15,7 @@ nombre VARCHAR(100) NOT NULL,
 estado boolean default  true comment 'VIGENTE O INACTIVO',
 CONSTRAINT PRIMARY KEY (programa_id)
 );
+
 DROP TABLE IF EXISTS profesor;
 CREATE TABLE profesor(
 profesor_id integer not null AUTO_INCREMENT,

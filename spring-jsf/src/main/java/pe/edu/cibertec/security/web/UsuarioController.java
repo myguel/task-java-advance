@@ -43,17 +43,11 @@ public class UsuarioController {
 	}
 
 	public String postLogin() throws ServletException, IOException {
-		ExternalContext context = FacesContext.getCurrentInstance()
-				.getExternalContext();
+		ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+		RequestDispatcher dispatcher = ((ServletRequest) context.getRequest()).getRequestDispatcher("/j_spring_security_check");
 
-		RequestDispatcher dispatcher = ((ServletRequest) context.getRequest())
-				.getRequestDispatcher("/j_spring_security_check");
-
-		dispatcher.forward((ServletRequest) context.getRequest(),
-				(ServletResponse) context.getResponse());
-
+		dispatcher.forward((ServletRequest) context.getRequest(),(ServletResponse) context.getResponse());
 		FacesContext.getCurrentInstance().responseComplete();
-
 		return null;
 	}
 
@@ -67,14 +61,8 @@ public class UsuarioController {
 
 		if (e instanceof BadCredentialsException) {
 			logger.debug("Found exception in session map: " + e);
-			FacesContext.getCurrentInstance().getExternalContext()
-					.getSessionMap()
-					.put(WebAttributes.AUTHENTICATION_EXCEPTION, null);
-			FacesContext.getCurrentInstance().addMessage(
-					null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR,
-							"Username or password not valid.",
-							"Username or password not valid"));
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(WebAttributes.AUTHENTICATION_EXCEPTION, null);
+			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_ERROR,"Username or password not valid.","Username or password not valid"));
 		}
 	}
 
