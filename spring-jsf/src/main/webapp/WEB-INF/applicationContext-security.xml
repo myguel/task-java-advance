@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+	<security:http use-expressions="true">
+		<security:intercept-url pattern="/protected.jsf"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/*" access="permitAll()" />
+		<security:form-login login-page="/login.jsf" />
+		<security:logout />
+	</security:http>
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:password-encoder hash="md5" />
+			<security:user-service>
+				<security:user name="miguel" password="9eb0c9605dc81a68731f61b3e0838937"
+					authorities="ROLE_SUPERVISOR, ROLE_USER" />
+				<security:user name="juan" password="a94652aa97c7211ba8954dd15a3cf838"
+					authorities="ROLE_USER" />
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+
+</beans>
