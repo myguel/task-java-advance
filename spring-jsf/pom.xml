@@ -61,6 +61,12 @@
 			<version>${jsf.version}</version>
 		</dependency>
 
+
+		<dependency>
+			<groupId>com.sun.el</groupId>
+			<artifactId>el-ri</artifactId>
+			<version>1.0</version>
+		</dependency>
 		<!-- Primefaces -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
