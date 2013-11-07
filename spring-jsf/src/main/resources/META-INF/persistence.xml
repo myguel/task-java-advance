@@ -6,6 +6,8 @@
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>pe.edu.cibertec.core.domain.Laboratorio</class>
+		<class>pe.edu.cibertec.core.domain.Profesor</class>
+		<class>pe.edu.cibertec.core.domain.Programa</class>
 		<properties>
 			<property name="eclipselink.weaving" value="false" />
 		</properties>
