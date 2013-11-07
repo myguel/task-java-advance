@@ -8,9 +8,12 @@
     </h:head>
     <h:body>
         <h:form>
+        	
             <h4>#{msg['web.titulo']}</h4>
 			<h:outputText value="#{msg['login.label.usuario']}"/>
+				<h:inputText value="#{mbUsuario.usuario.usuario}"></h:inputText>
 			<h:outputText value="#{msg['login.lable.password']}"/>
+			<h:inputText value="#{mbUsuario.usuario.password}"></h:inputText>
             <h:button value="#{msg['login.lable.boton']}"/>
         </h:form>
     </h:body>
