@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css"
+		name="styles-zona-privada-otra-propuesta.css" />
+	<h:outputStylesheet library="css" name="styles-custom-aristo.css" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/javascript/funciones.js"></script>
+	
+	<h:outputScript library="javascript" name="funcionesUtiles.js"
+		target="head" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/javascript/idiomaFechasPrimefaces.js"></script>
+
+	<title><ui:insert name="title" /></title>
+</h:head>
+<h:body>
+<script type="text/javascript">
+
+function ajaxSessionTimeout(){
+			sessionDialog.show();
+		}
+	
+		!function( jQuery ){
+			jQuery.ajaxSetup({
+		        statusCode: 
+		        {
+		            901: ajaxSessionTimeout
+		        }
+		    });
+		}(window.jQuery);
+	</script>
+	
+	<div id="layout">
+	
+		<div id="header">
+			<table class="header-tabla" cellspacing="0px">
+				<tr>
+					<td class="header-left"><h:graphicImage library="images"
+							styleClass="logo" name="logo-divermotor.png" /></td>
+
+					<td class="header-left">
+						<div style="float: right;">
+							<table>
+								<tr>
+									<td><h:graphicImage library="images"
+											styleClass="icono-usuario-autenticado" name="icon-user.png" />
+									</td>
+									<td>
+										<div class="nombre-usuario-autenticado">
+											<h:outputText
+												value="#{loginController.usuario.nombres} #{loginController.usuario.apellidos}" />
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+					<td class="header-right">
+						<div class="iconos-encabezado">
+							<table>
+								<tr>
+									<td><h:graphicImage library="images" name="inicio.png"
+											styleClass="icono-encabezado" /></td>
+									<td><h:graphicImage library="images" name="ayuda.png"
+											styleClass="icono-encabezado" /></td>
+									<td><h:form prependId="true">
+											<p:commandLink onstart="esCerrarSession=true;"
+												action="#{loginController.cerrarSession}"
+												process="@this">
+
+												<h:graphicImage library="images" name="salir.png"
+													styleClass="icono-encabezado" alt="Salir" title="Salir" />
+											</p:commandLink>
+										</h:form></td>
+								</tr>
+							</table>
+
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="main">
+
+			<div id="cajaPrincipal">
+
+				<div style="width: 100%">
+
+					<div id="barra-separacion">
+						<div id="barra-separacion-contenido">
+							<h:form prependId="false">
+								<p:commandLink id="boton-ocultar" oncomplete="ocultarMenu();"
+									process="@this">
+									<div id="barra-separacion-sub-contenido">
+										<span class="ui-icon ui-icon-triangle-1-w"></span>
+									</div>
+								</p:commandLink>
+								<p:commandLink id="boton-mostrar" oncomplete="mostrarMenu();"
+									process="@this">
+									<div id="barra-separacion-sub-contenido">
+										<span class="ui-icon ui-icon-triangle-1-e"></span>
+									</div>
+								</p:commandLink>
+							</h:form>
+						</div>
+					</div>
+
+					<div id="todito">
+						
+						<ui:include src="session-time-out-interno.xhtml" />
+						
+						<ui:insert name="content">
+							<span>Pagina en construccion</span>
+						</ui:insert>
+					</div>
+
+					<div style="clear: both;"></div>
+
+				</div>
+
+				<div id="footer">
+					<div id="content-footer">
+						<h:outputLabel>#{loginController.mensajeCopyright}</h:outputLabel>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div id="menu">
+			<ui:include src="zona-privada-menu.xhtml" />
+		</div>
+		<p:dialog showHeader="false" id="load" modal="true" width="51" widgetVar="wvLoad" draggable="false" closable="false" resizable="false">
+			<h:graphicImage height="25px" style="margin-top:0px;" width="25px;" library="images" name="loading.gif"></h:graphicImage>
+		</p:dialog>
+
+	</div>
+</h:body>
+</html>

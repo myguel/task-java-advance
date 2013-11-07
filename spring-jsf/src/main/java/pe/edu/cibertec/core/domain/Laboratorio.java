@@ -51,6 +51,14 @@ public class Laboratorio implements Serializable{
 	@Column(name="estado")
 	private Boolean estado;
 	
+	public Laboratorio() {
+	}
+	
+	public Laboratorio(String nombre, Integer duracion) {
+		this.nombre = nombre;
+		this.duracion = duracion;
+	}
+	
 	public Long getLaboratorioId() {
 		return laboratorioId;
 	}

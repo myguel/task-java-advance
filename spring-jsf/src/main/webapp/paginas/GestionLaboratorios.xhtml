@@ -1,0 +1,112 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/facelets/templates/zona-privada-principal.xhtml">
+
+	<ui:define name="title"> Gesti&#243;n de Laboratorios </ui:define>
+	<ui:define name="nameForm"> Gesti&#243;n de Laboratorios </ui:define>
+	<ui:define name="content">
+		<p:growl id="growl" showDetail="true" sticky="false" life="4500" globalOnly="true" />
+
+		<h:form id="formBusqueda" styleClass="ui-widget" prependId="false">
+			<div id="sub-header">
+				<div id="nameForm">Gesti&#243;n de Laboratorios</div>
+				<div id="toolBar">
+					<p:commandLink ajax="true" styleClass="butonSmall" id="buscar"
+						action="#{laboratorioController.buscarLaboratorios}" update="plgDtMotivo">
+						<h:graphicImage library="images" name="buscar.png"
+							styleClass="toolbar-icon" alt="Buscar" title="Buscar" />
+					</p:commandLink>
+					<p:spacer width="10" />
+					<p:commandLink ajax="true" styleClass="butonSmall" process="@this" id="limpiar"
+						action="#{laboratorioController.limpiarLaboratorios}" update="plgFiltro">
+						<h:graphicImage library="images" name="limpiar.png"
+							styleClass="toolbar-icon" alt="Limpiar" title="Limpiar" />
+					</p:commandLink>
+					<p:spacer width="10" />
+					<p:commandLink ajax="true" styleClass="butonSmall" id="nuevo" 
+						action="#{laboratorioController.nuevoLaboratorio}"
+						oncomplete="wvDlgMotivoNuevo.show(); limpiarFormularioSoloInput('panelNuevaCita')">
+						<h:graphicImage library="images" name="nuevo.png"
+							styleClass="toolbar-icon" alt="Nuevo" title="Nuevo" />
+					</p:commandLink>
+					<p:defaultCommand target="buscar" /> 
+				</div>
+			</div>
+			<div id="content">
+				<div class="panel-filtro">
+					<h:panelGroup id="plgFiltro">
+						<p:panelGrid columns="4">
+							<h:outputLabel styleClass="label-general"  value="Nombre: "/>
+							<p:inputText styleClass="input-general" maxlength="50"
+								value="#{laboratorioController.laboratorio.nombre}" />
+								
+							<h:outputLabel styleClass="label-general" value="Estado: "/>
+							<p:selectOneMenu styleClass="select-general"
+								value="#{laboratorioController.laboratorio.estado}">
+								<f:selectItem itemLabel="Seleccione" itemValue="-" />
+								<f:selectItem itemLabel="Activo" itemValue="A" />
+								<f:selectItem itemLabel="Inactivo" itemValue="I" />
+							</p:selectOneMenu>
+							
+						</p:panelGrid>						
+					</h:panelGroup>
+				</div>				
+				<p:spacer height="25" />				
+				<h:panelGroup id="plgDtMotivo">
+					<p:dataTable id="dtMotivoCita" var="lab"
+						value="#{laboratorioController.laboratorios}"
+						rowKey="#{lab.laboratorioId}"
+						emptyMessage="No se encontraron Laboratorios con el filtro deseado"
+						paginator="true" rows="10"
+						paginatorPosition="top"
+						paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+						currentPageReportTemplate="{currentPage} de {totalPages}" >
+
+						<p:column sortBy="#{lab.nombre}" id="colMotivo"
+							headerText="Nombre" >
+							<h:outputText value="#{lab.nombre}" />
+						</p:column>
+
+						<p:column id="colEstado" headerText="Duracion"
+							style="text-align: center;" >
+							<h:outputText value="#{lab.duracion}" />
+						</p:column>
+
+						<p:column styleClass="boton-data-table-centrado">
+							<f:facet name="header">
+								<h:outputText value=" " />
+							</f:facet>
+							<p:commandLink id="cmlLaboratorioEditar"
+								oncomplete="wvDlgMotivoEditar.show();" 
+								process=":formBusqueda:plgDtMotivo">
+								<h:graphicImage library="images" name="editar.png"
+									styleClass="icon-small" alt="Editar" title="Editar" />
+								<f:setPropertyActionListener value="#{mot}"
+									target="#{laboratorioController.editarLaboratorio}" />
+							</p:commandLink>
+						</p:column>
+
+						<p:column styleClass="boton-data-table-centrado">
+							<f:facet name="header">
+								<h:outputText value=" " />
+							</f:facet>
+							<p:commandLink id="cmlLaboratorioEliminar" immediate="true"
+								oncomplete="wvDlgMotivoEliminar.show();">
+								<h:graphicImage library="images" name="eliminar.png"
+									styleClass="icon-small"  alt="Eliminar" title="Eliminar" />
+								<f:setPropertyActionListener value="#{mot}"
+									target="#{laboratorioController.eliminarLaboratorios}" />
+							</p:commandLink>
+						</p:column>
+
+						
+					</p:dataTable>
+				</h:panelGroup>				
+			</div>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

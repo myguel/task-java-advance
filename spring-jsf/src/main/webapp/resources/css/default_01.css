@@ -1,0 +1,192 @@
+.ui-widget, .ui-widget .ui-widget {
+    font-size: 12px;
+}*
+
+html, body {
+	font-family: Verdana,Arial,sans-serif;
+	font-size: 12px;
+	color: #808080;
+	margin: 0;
+	padding: 0;
+	background-color: #333333;
+	-webkit-text-size-adjust: none;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%
+}
+
+#layout {
+	width: 1000px;
+	margin: 0 auto 0 auto;
+	margin-top: 186px;
+}
+
+#box {
+	width: 563px;
+	margin: 0 auto 0 auto;
+	padding-bottom: 113px;
+	background: white;
+	position: relative;
+	-webkit-box-shadow: 0 7px 20px #1F1F1F;
+	-moz-box-shadow: 0 7px 20px #1f1f1f;
+	box-shadow: 0 7px 20px #1F1F1F;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+}
+
+#header {
+	padding-top: 11px;
+}
+
+#caja {
+/*     width: 1000px; */
+	float: left;
+	background-color:#FFFFFF;
+    min-height: 95px;
+	margin: 0 auto;
+ } 
+
+#caja .right{
+	float: right;
+}
+ 
+.logo3 {
+	padding-top: 68px;
+	padding-bottom: 20px;
+	float: left;
+	padding-left: 80px;
+	margin-top: 20px;
+	margin: 0 auto;
+}
+
+#menu {
+	float: right;
+	margin-top: 55px;
+	margin-right: 46px;
+	width: 556px;
+	text-align: left;
+}
+
+#body #subbody {
+	margin: 0px 0px 0px 0px;
+	background-color: #FFFFFF;
+}
+
+.textTitulo  {
+	font-size: 25px;
+	line-height:35px;
+	font-weight:bold;
+}
+
+.textSubTitulo  {
+	font-size: 12px;
+	line-height:20px;
+	font-weight: normal;
+}
+
+#subbody h2 {
+	font-size: 15px;
+	color: #000;
+	float: left;
+	margin-left: 30px;
+	_margin-left: 15px;
+	margin-top: 15px;
+	padding-bottom: 18px;
+}
+
+/* Linea de la 2da Cabecera */
+#body #subbody #linecab {
+	border-bottom: solid 1px #DFDFDF;
+}
+
+#body #subbody #header2 {
+	background-color: #FCFCFC;
+	border-bottom: solid 1px #DFDFDF;
+	height: 75px;
+	font-size: 12px;
+	padding-top: 35px;
+	padding-bottom: 0px;
+	/*float: left;*/
+	padding-left: 80px;
+	padding-right: 70px;
+}
+
+.both {
+	clear: both;
+	visibility: hidden;
+}
+
+#content {
+	background-color: #FFFFFF;
+/* 	width:1000px; */
+	height:auto;
+}
+
+#contentcent {
+	background-color: #FFFFFF;
+/* 	width:900px; */
+	height:auto;
+	font-size: 12px;
+	margin: 0 auto 0 auto;
+}
+
+/** footer **/
+#footer {
+    width: 1000px;
+	padding-top: 0px;
+	padding-left: 0px;
+	/*padding-rigth: 30px;*/
+	float: left;
+    min-height: 95px;
+	margin: 0 auto;
+}
+
+#footer a {
+	color: #808080;
+}
+
+#footer a:hover {
+	color: #00aaff;
+}
+
+#footer .sep {
+	color: #cac9c9;
+}
+
+#footer .left {
+	float: left;
+	padding-top: 26px;
+	padding-left: 60px;
+	font-family:'Helvetica Neue', Helvetica;
+	font-size:14px;
+}
+
+#footer .right{
+	float: right;
+	padding-top: 20px;
+	padding-right:60px;
+}
+
+/*** Pesonalización Primefaces ***/
+
+.inputMediano {
+	width: 200px !important;
+}
+
+.inputGrande {
+	width: 300px !important;
+}
+
+.selectOneMediano {
+	width: 207px !important;
+}
+
+.buttonSmall {
+	vertical-align: center;
+	height: 18px;
+	width: 18px;
+}
+/* .ui-fieldset, .ui-fieldset .ui-fieldset-legend { */
+/* 	padding: 0.6em 1em !important; */
+/* } */

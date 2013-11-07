@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<p:idleMonitor  onactive="sessionTimeOutDialog.show();"
+		timeout="#{session.maxInactiveInterval * 1000}" />
+	<p:dialog  header="Su sesi&#243;n ha caducado" resizable="false" draggable="false"
+		widgetVar="sessionTimeOutDialog" modal="true" fixedCenter="true"
+		closable="false" width="400" visible="false">
+		<h:outputText
+			value="La sesi&#243;n ha caducado, por favor pulse en el siguiente bot&#243;n para acceder a la aplicaci&#243;n" />
+		<div align="center">
+				<p:spacer height="10"></p:spacer>
+				
+			
+			<p:button icon="ui-icon-arrowreturn-1-w" value="Volver a iniciar sesi&#243;n"  href="#" onclick="window.location='#{facesContext.externalContext.requestContextPath}/pages/zonaPrivada/login-interno.jsf?codigoPais='+getCookie('codigoPais')">
+			
+			</p:button>
+		</div>
+	</p:dialog>
+</ui:composition>

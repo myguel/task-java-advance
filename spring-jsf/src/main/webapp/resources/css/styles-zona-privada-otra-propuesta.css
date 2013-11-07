@@ -1,0 +1,891 @@
+/* CSS Reset */
+/* html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } body { line-height: 1; } ol, ul { list-style: none; } blockquote, q { quotes: none; } blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; } table { border-collapse: collapse; border-spacing: 0; } */
+
+/*** Fuentes ***/
+
+.hide{
+visibility: hidden
+}
+
+@font-face {
+	font-family: CorporateAConReg;
+	src: url('../resources/fonts/CorporateAConReg.eot'); /* EOT file for IE */
+}
+
+@font-face {
+	font-family: CorporateAConReg;
+	src: url("../resources/fonts/CorporateAConReg.ttf"); /* TTF file for CSS3 browsers */
+}
+
+@font-face {
+	font-family: applegaramond;
+	src: url('../resources/fonts/applegaramond.eot'); /* EOT file for IE */
+}
+
+@font-face {
+	font-family: applegaramond;
+	src: url("../resources/fonts/applegaramond.ttf"); /* TTF file for CSS3 browsers */
+}
+
+/*** Estilos Generales ***/
+
+body {
+	font-family: "Segoe UI", Verdana, Arial, sans-serif;
+	font-size: 13px;
+	color: #222;
+	margin: 0;
+}
+
+#layout {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#header {
+	/*background-color:#A8A8A8;*/
+    float: left;
+    width: 100%;
+	height: 38px;
+	padding-right: 5px;
+    
+}
+
+.header-left{
+	height:38px;
+	background: url(../resources/images/bg-head-transparente.png);
+	background-repeat:repeat-x;
+}
+
+.header-right{
+	height:37px;
+	background: url(	../resources/images/bg-head-curve-transparente.png);
+	width: 128px;
+	background-repeat: no-repeat;
+	}
+.header-tabla{
+	width:99%;
+	margin-right: 10px;
+	}
+	
+	
+
+#main {
+    float: left;
+    width: 100%;
+}
+
+#cajaPrincipal {
+    margin-left: 180px;
+	
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	
+/* 	margin-top: -10px; */
+}
+
+#sub-header {
+	padding: 5px 10px 0 10px;
+	height: 35px;
+}
+
+#nameForm {
+	font-family: applegaramond;
+	color: #000;
+	font-size: 30px;
+	float: left;
+/* 	vertical-align: middle; */
+}
+
+#toolBar {
+	float: left;
+	margin-top: 7px;
+	margin-left: 35px;
+}
+
+#content {
+    margin: 0px 20px 10px 10px;
+	border-top: 1px solid #CCC;
+	padding-top: 10px;
+}
+
+#menu {
+    float: left;
+    background: #333;
+    width: 180px;
+    margin-left: -100%;
+    color: #000;
+}
+
+#todito {
+    margin-left: 9px;
+}
+
+#barra-separacion {
+	float: left;
+    width: 8px;
+	
+	display: table;
+    #position: relative;
+}
+
+#barra-separacion-contenido {
+    display: table-cell;
+    vertical-align: middle;
+/*     #position:absolute; */
+/*     #top: 50%; */
+}
+
+#barra-separacion-sub-contenido {
+/*     #position:relative; */
+/*     #top:-50%; */
+/* 	height: 80px; */
+	
+	height: 45px;
+	padding-top: 35px;
+}
+
+#barra-separacion-sub-contenido > span.ui-icon.ui-icon-triangle-1-e {
+/* 	margin-top: 34px; */
+	width: 8px;
+	height: 8px;
+	background-position: -36px -20px;
+}
+
+#barra-separacion-sub-contenido > span.ui-icon.ui-icon-triangle-1-w {
+/* 	margin-top: 34px; */
+	width: 8px;
+	height: 8px;
+	background-position: -100px -20px;
+}
+
+#footer {
+	
+	padding: 0 10px 0 25px;
+	background-color: #FFF;
+/*     color: #bbb; */
+    height: 35px;
+/*     text-align: center; */
+}
+
+#content-footer {
+	border-top: 1px solid #CCC;
+	padding-top: 8px;
+	text-align: right;
+}
+
+#content-footer label {
+	margin-right: 15px;
+    color: #666;
+	font-size: 10px;
+	font-family: Arial;
+	font-weight: bolder;
+}
+
+div.ui-panelmenu > h3.ui-panelmenu-header > a {
+	font-size: 90% !important;
+}
+
+.ui-widget, .ui-widget .ui-widget {
+    font-size: 90%;
+}
+
+tr.ui-datatable-even {
+	background: #FFF;
+	color: #666;
+}
+
+tr.ui-datatable-odd {
+	background: #EEE;
+	color: #666;
+}
+
+/* div.toolBar > div.ui-panel { */
+/* 	padding: 0; */
+/* } */
+
+.logo {
+	float: left;
+    height: 25px;
+    margin-left: 22px;
+    margin-top: -15px;
+}
+
+.select-general {
+	width: 150px !important;
+}
+
+.select-general label {
+	float: left;
+	text-align: left;
+	color: #666;
+}
+
+.input-general {
+	width: 142px !important;
+	color: #666;
+	font-size: 100% !important;
+}
+
+.input-area-general {
+	color: #666;
+	font-size: 100% !important;
+}
+
+.input-anexo {
+	font-size: 100% !important;
+	margin-left: 5px !important;
+	width: 50px!important
+}
+
+.input-descripcion {
+	color: #313131 !important;
+    font-size: 100% !important;
+    width: 95% !important;
+}
+
+.input-busqueda {
+	font-size: 100% !important;
+    width: 141px !important;
+}
+
+.buton-general {
+	width: 80px !important;
+}
+
+.label-general {
+	color: #666;
+}
+
+.horarioAsesor {
+	height: 310px;
+    margin: 5px;
+}
+
+.horarioAsesor .label-mensaje {
+	color: #666;
+	font-size: 11px;
+	margin-right: 10px;
+}
+
+.horarioAsesor .divIzquierdaAsesor {
+	 float: left;
+	 margin-left: 20px;
+}
+
+.horarioAsesor .divDerechaAsesor {
+	float: left;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+
+div.ui-dialog-content {
+	font-size: 111.11% !important;
+	color: #666;
+}
+
+/*** PANEL FILTRO ***/
+
+.panel-filtro {
+ margin-left: 10px;
+}
+.panel-filtro td {
+	height: 28px;
+}
+
+.panel-filtro td input.input-general {
+	float: left;
+}
+
+.panel-filtro td .ui-selectonemenu.select-general {
+	float: left;
+}
+
+.panel-filtro tr td:first-child label.label-general {
+	margin-left: 0px !important;
+	color: #666;
+}
+
+.panel-filtro tr td label.label-general {
+	text-align:right;
+	margin-right: 7px;
+	margin-left: 30px; 
+	float: right;
+	color: #666;
+	
+}
+.filtro-centrado{
+	padding-left: 137px;
+}
+
+
+
+.panel-general-popup {
+	margin-top: 5px;
+	margin-left: 15px;
+}
+
+.panelMessages {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	text-align: left;
+}
+
+/*** PANEL FORMULARIO ***/
+
+.panel-formulario td {
+	height: 28px;
+}
+
+.panel-formulario .columna-adicional{
+	height: 5px !important;
+}
+
+.panel-formulario td input.input-general {
+	float: left;
+}
+
+.panel-formulario td .ui-selectonemenu.select-general {
+	float: left;
+}
+
+.panel-formulario tr td:first-child label.label-general {
+	margin-left: 0px !important;
+	color: #666;
+	
+}
+
+.panel-formulario tr td label.label-general {
+	text-align:right;
+	margin-right: 7px;
+	margin-left: 90px; 
+	float: right;
+	color: #666;
+}
+
+.ui-corner-all {
+	moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.toolbar-icon {
+	width: 20px;
+	height: 20px;
+	border: none;
+}
+
+.icon-small {
+	vertical-align: center;
+	height: 14px;
+	width: 16px;
+	border: none;
+}
+
+.boton-data-table-centrado {
+	width: 2%;
+}
+
+.icono-tipo-imagen {
+	vertical-align: center;
+	height: 20px;
+	width: 20px;
+	border: none;
+}
+
+.centrar-contenido {
+	text-align: center;
+}
+
+.bloque {
+	display: inline-block;
+	width: 100%;
+}
+
+.bloque > .izquierda {
+	float: left;
+}
+
+.bloque > .derecha {
+	float: right;
+}
+
+.gestion-repuestos-imagenes.izquierda {
+	width: 35%;
+}
+
+.gestion-repuestos-imagenes.derecha {
+	width: 65%;
+}
+
+.bloque > .izquierda > .margen-contenido {
+	margin-right: 10px;
+}
+
+.bloque > .derecha > .margen-contenido {
+	margin-left: 10px;
+}
+
+.panel-botones {
+	margin-top: 15px;
+    margin-bottom: 5px;
+    vertical-align: middle;
+}
+
+.pdf-vista-previa {
+	text-align: center;
+	width: 100%;
+	height: 400px;
+}
+
+.scroll-image {
+	overflow: scroll;
+	width: 100%;
+	height: 375px;
+	background: #CCC;
+}
+
+.image-promocion-asignar {
+/* 	width: 100%; */
+	height: 380px;
+	background: #CCC;
+	overflow : scroll ;
+	
+	/*overflow-y:scroll; overflow-x:hidden;*/
+}
+
+#popupPromocionAsignarRepuestos > div.ui-dialog-content {
+	overflow: scroll;
+}
+
+#popupPromocionAsignarRepuestos, #popupGestionRepuestosImagenes {
+	width: 100% !important;
+}
+
+.imagen-vista-previa {
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	border-bottom: 1px solid #888;
+}
+
+.botones-scroll-image {
+	
+	background: transparent;
+	top: 320px;
+	right: 40px;
+	position: absolute;
+}
+
+.iconos-encabezado {
+	float: right;
+	margin: 0px 10px 0 0;
+/* 	background-color: white; */
+	height: 45px;
+}
+
+.icono-encabezado {
+/* 	width: 28px; */
+/* 	height: 28px; */
+	border: none;
+	margin-top: 7px;
+
+}
+
+.icono-encabezado-curva {
+/* 	width: 28px; */
+	height: 45px;
+	border: none;
+	float: right;	
+}
+.inputGrande td input{
+	width: 445px;
+	float: left;
+	margin-left: 5px;
+	margin-top: -5px;
+}
+
+.inputGrande td label{
+	margin-left: 45px;
+}
+
+.titulo-sub-contenido {
+/* 	font-family: CorporateAConReg; */
+	font-family: applegaramond;
+	font-size: 18px;
+	color: #666;
+}
+
+span.calendar-general > input.ui-inputfield.hasDatepicker {
+	width: 143px ;	
+	float: left;
+	font-size: 100% !important;
+}
+.butonEnInput {
+	height: 23px;
+    margin-left: -23px;
+    margin-top: -2px !important;
+    padding-top: 1px !important;
+    width: 23px !important;
+}
+.linea{
+	background: none;
+	border-top: 1px solid #CCCCCC;
+	border-right: none;
+	border-left: none;
+	 margin-top: 5px;
+}
+
+.container-image-promocion-nuevo, .container-image-promocion-editar, .container-image-promocion-copiar {
+	width: 100%;
+/* 	width: 300px; */
+	height: 240px;
+	background: #CCC; 
+}
+
+.image-promocion-nuevo, .image-promocion-editar, .image-promocion-copiar {
+/* 	 width: auto; */
+	max-height: 100%;
+	max-width: 100%;
+}
+
+#image-promocion {
+/* 	width: 400px; */
+/* 	height: 300px; */
+}
+
+.toolBar {
+	float: left;
+
+	margin-left: 35px;
+}
+.sub-titulo{
+	float: left;
+	height: 20px;
+}
+
+span.sugerencia {
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 3px;
+}
+
+.sugerencia {
+	font-family: applegaramond;
+	font-size: 16px;
+	color: #666;
+}
+
+.header-sub-titulo{
+	padding: 5px 10px 0 10px;
+	height: 22px;
+}
+
+#panelPromocionCopiar > div.bloque.izquierda, #panelPromocionEditar > div.bloque.izquierda, #panelPromocionNuevo > div.bloque.izquierda {
+	float: left;
+	width: 60%;
+}
+
+#panelPromocionCopiar > div.bloque.derecha, #panelPromocionEditar > div.bloque.derecha, #panelPromocionNuevo > div.bloque.derecha {
+	float: right;
+	width: 40%;
+}
+
+.fecha-general input{
+	font-size:100% !important;
+	width: 142px;
+}
+
+.nombre-usuario-autenticado{
+	color: white;
+	float: right;
+	margin-bottom: 10px;
+}
+
+.icono-usuario-autenticado{
+	float: left;
+    height: 25px;
+    margin-right: 15px;
+    margin-top: -10px;
+}
+.titulo-login-interno{
+	text-align:center;
+	font-family: applegaramond;
+	font-size: 25px;
+	color: #00427F;
+}
+
+.pie-pagina-login-interno{
+	margin-top:10px;
+	
+}
+.pie-pagina-login-interno a{
+	color: #717A7C;
+	font-size: 13px;
+	font-family: 'HelvetivaNeue','Helvetica Neue', Helvetica !important;
+	text-shadow :none !important;
+}
+.divObservacion{
+	margin-left: 72px;
+}
+.divObservacion td textarea{
+ margin-left: 9px;
+	
+}
+.divObservacion td{
+    padding-top: 2px;
+   /* text-align: center;   acaaaaa*/
+	height: 30px; 	
+   
+	
+}
+
+.divObservacion td label{
+	margin-right: 2px;
+	margin-left: 9px; 
+	float: right;
+}
+.divDetalleHistorialEstados {
+	margin: 10px;
+	/*margin-left: 15px;*/
+	
+}
+.divDetalleHistorialEstados table td {
+	
+	 padding-top: 0px !important;
+	 padding-bottom: 0px !important; 
+}
+
+.panel-botones-formulario-derecha {
+	width: 100%;
+	text-align: right;
+	padding: 10px 0 10px 0;
+}
+
+.izquierda-gestion-cotizacion {
+	float: left;
+    width: 300;
+    padding-left: 30px;
+    padding-top: 15px;
+}
+
+.derecha-gestion-cotizacion {
+	float: right;
+/*     width: 68%; */
+
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.panel-botones {
+	margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.widthColumnCodigoDataTale {
+	text-align: center;
+    width:150px;
+}
+
+.widthColumnEstadoDataTale {
+	text-align: center;
+    width:125px;
+}
+
+.boton-data-table-centrado {
+	width: 2%;
+	text-align: center;
+}
+
+
+
+/*****  Anthony  *****/
+
+.text-area-promocion {
+	/*width:420px;*/
+	width: 97%;
+	height:40px;
+	/*vertical-align: middle;*/
+	float: left;
+	font-size: 100% !important;
+	padding-top: 20px;
+}
+
+.text-area-promocion-copiar {
+	width:420px;
+	/*width: 100%;*/
+	height:40px;
+	/*vertical-align: middle;*/
+	float: left;
+	font-size: 100% !important;
+}
+
+.descripcion-promocion{
+	padding-left: 38px;
+ }
+
+.panelEliminar{
+	width:260px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.alineacion-columna {
+	text-align: center;
+}
+
+.alineacion-derecha-columna {
+	text-align: right;
+}
+
+.columna-cantidad {
+	width: 70px;
+}
+
+/* th.columna-cantidad-referencial div.ui-dt-c :not(span.ui-sortable-column-icon) { */
+/* 	padding-left: 5px; */
+/* } */
+
+html {
+	width: 99.5%;
+}
+
+.historial-cotizacion-columna-fecha-hora {
+	text-align: right;
+	padding-right: 14px !important;
+}
+
+.datos-vehiculo-detalle-repuesto {
+	margin-left: 30px;
+}
+
+.texto-general{
+	color: #313131;
+	float: left;
+}
+
+.columna-panel-grid{
+	color:red;
+	
+}
+.pie-cantidad-resultados{
+	
+}
+
+
+
+.divDetalleHistorialEstados table.ui-panelgrid.ui-widget > tbody  tr{
+	border: 1px solid #A8A8A8;
+}
+.divDetalleHistorialEstados table.ui-panelgrid.ui-widget > tbody  tr td{
+	
+	padding: 5px 5px 5px 5px;
+	border: 1px solid #A8A8A8;
+}
+
+.contenedor-popup-scroll{
+	
+}
+
+.textAreaObservacion{
+	font-size: 100% !important;
+}
+
+
+/*  Inicio Estilos para el Gestion Asesores  */
+
+.divPrincipalPopUp {
+	/*padding: 30px;*/
+	padding-bottom: 20px;
+	margin-top: 10px;	
+}
+
+.borderBox {
+  border-bottom: 1px solid #DCDFE1;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+div.tablebox { 
+/*width:720px;*/
+margin-left: 4px;
+padding-left: 8px;
+padding-right: 8px;
+padding-top: 8px;
+}
+
+div.columna_izquierda { 
+/*width:300px; */
+float:left; 
+text-align:right; 
+vertical-align:middle;
+/*padding-left: 30px;*/
+}
+
+div.contenido { 
+width:60px; 
+float:left;
+margin-top: 10px;
+}
+
+div.columna_derecha { 
+width: 300px !important; 
+float:left;
+margin-top: 0px;
+/*padding-right:30px;*/
+padding-right:10px;
+text-align:center; 
+vertical-align:middle; 
+}
+
+/* Fin  Estilos para el Gestion Asesores  */
+
+
+/* Inicio  Estilos para el Gestion Usuarios  */
+.subtitulo {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight:bold;
+}
+
+/* Fin  Estilos para el Gestion Usuarios  */
+
+.fechaCitaDetalle {
+	width: 143px !important; 
+}
+
+
+.titulo {
+	color: #666666;
+	padding-top: 10px;	
+	font-weight:bold;	
+	font-family: arial;
+	font-size: 12px;
+	color: #666;
+}
+
+.panel-formulario td .labelNotaDescriptiva {
+   float: left !important;
+   font-size: 11px;
+   margin-left: 10px !important;
+   margin-top: 5px;
+   margin-left: 5px;
+   text-align: left !important;
+}
+
+.panel-formulario td .labelNotaDescriptiva:hover {
+   	color: #000000;
+	font-size: 100%;
+}
+
+
+.data-horarios table {
+	width: 65%;
+}
+
+.data-horarios table td {
+	width: 70px;
+	text-align: center
+}

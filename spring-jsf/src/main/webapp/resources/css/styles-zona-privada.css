@@ -1,0 +1,293 @@
+/* CSS Reset */
+/* html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } body { line-height: 1; } ol, ul { list-style: none; } blockquote, q { quotes: none; } blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; } table { border-collapse: collapse; border-spacing: 0; } */
+
+/*** Estilos Generales ***/
+
+html {
+    background: #333;
+}
+
+body {
+	font-family: "Segoe UI", Verdana, Arial, sans-serif;
+	font-size: 13px;
+	color: #222;
+}
+
+#layout {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#header {
+    float: left;
+    width: 100%;
+    background: #333;
+}
+
+#main {
+    float: left;
+    width: 100%;
+}
+
+#cajaPrincipal {
+    margin-left: 150px;
+	background-color: #eee;
+
+	border-top: 1px solid #262626;
+	
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#nameForm {
+	margin: 0 10px 0 10px;
+}
+
+#content {
+    min-height: 506px;
+    margin: 0 10px 10px 10px;
+}
+
+#menu {
+    float: left;
+/*     background: #FFF; */
+    background: #333;
+    width: 150px;
+    margin-left: -100%;
+    color: #000;
+}
+
+#footer {
+	padding-top: 13px;
+	background-color: #C2C2C2;
+    color: #FFF;
+    height: 30px;
+    text-align: center;
+}
+
+.iconSmall {
+	vertical-align: center;
+	height: 18px;
+	width: 18px;
+	border: none;
+}
+
+.ui-widget-header {
+	background-color: #C2C2C2;
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#FDFDFD),color-stop(100%,#C2C2C2));
+	background: -webkit-linear-gradient(#FDFDFD,#C2C2C2);
+	background: -moz-linear-gradient(#FDFDFD,#C2C2C2);
+	background: -ms-linear-gradient(#FDFDFD,#C2C2C2);
+	background: -o-linear-gradient(#FDFDFD,#C2C2C2);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdfdfd', endColorstr='#c2c2c2');
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdfdfd', endColorstr='#c2c2c2');
+	background: linear-gradient(#FDFDFD,#C2C2C2);
+}
+
+div.ui-panelmenu > h3.ui-panelmenu-header > a {
+	font-size: 90% !important;
+}
+
+.ui-widget, .ui-widget .ui-widget {
+	font-size: 90% !important;
+}
+
+tr.ui-datatable-even {
+	background: #FFF;
+	color: #666;
+}
+
+tr.ui-datatable-odd {
+	background: #EEE;
+	color: #666;
+}
+
+div.toolBar > div.ui-panel {
+	padding: 0;
+}
+
+div.toolBar > div.ui-panel > div.ui-panel-content {
+/* 	background-color: #C2C2C2; */
+	
+	background-color: #C2C2C2;
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#FDFDFD),color-stop(100%,#C2C2C2));
+	background: -webkit-linear-gradient(#FDFDFD,#C2C2C2);
+	background: -moz-linear-gradient(#FDFDFD,#C2C2C2);
+	background: -ms-linear-gradient(#FDFDFD,#C2C2C2);
+	background: -o-linear-gradient(#FDFDFD,#C2C2C2);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdfdfd', endColorstr='#c2c2c2');
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdfdfd', endColorstr='#c2c2c2');
+	background: linear-gradient(#FDFDFD,#C2C2C2);
+}
+
+.toolbarIcon {
+	width: 18px;
+	height: 18px;
+	border: none;
+}
+
+.logo {
+	height: 45px;
+}
+
+#nameForm {
+	font-size: 18px;
+	font-weight: bold;
+	height: 30px;
+	vertical-align: middle;
+}
+
+.select-general {
+	width: 150px !important;
+}
+
+.select-general label {
+	float: left;
+	color: #666;
+}
+
+.input-general {
+	width: 142px !important;
+	color: #666;
+}
+
+.buton-general {
+	width: 70px !important;
+}
+
+.label-general {
+	font-size: 90% !important;
+	color: #666;
+}
+
+div.ui-dialog-content {
+	font-size: 111.11% !important;
+	color: #666;
+}
+
+/*** PANEL FILTRO ***/
+
+.panel-filtro td {
+	height: 28px;
+}
+
+.panel-filtro td input.input-general {
+	float: left;
+}
+
+.panel-filtro td .ui-selectonemenu.select-general {
+	float: left;
+}
+
+.panel-filtro tr td:first-child label.label-general {
+	margin-left: 0px !important;
+	color: #666;
+}
+
+.panel-filtro tr td label.label-general {
+	text-align:right;
+	margin-right: 10px;
+	margin-left: 30px; 
+	float: right;
+	color: #666;
+}
+
+.panel-general-popup {
+	margin-top: 5px;
+}
+
+.panelMessages {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+/*** PANEL FORMULARIO ***/
+
+.panel-formulario td {
+	height: 28px;
+}
+
+.panel-formulario td input.input-general {
+	float: left;
+}
+
+.panel-formulario td .ui-selectonemenu.select-general {
+	float: left;
+}
+
+.panel-formulario tr td:first-child label.label-general {
+	margin-left: 0px !important;
+	color: #666;
+}
+
+.panel-formulario tr td label.label-general {
+	text-align:right;
+	margin-right: 10px;
+	margin-left: 30px; 
+	float: right;
+	color: #666;
+}
+
+.panel-formulario .ui-state-error {
+	border: 1px solid #8C8C8C;
+	color: #666;
+}
+
+.ui-selectonemenu-trigger.ui-state-error {
+	background-color: #CCC;
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#ECECEC),color-stop(100%,#CCC));
+	background: -webkit-linear-gradient(#ECECEC,#CCC);
+	background: -moz-linear-gradient(#ECECEC,#CCC);
+	background: -ms-linear-gradient(#ECECEC,#CCC);
+	background: -o-linear-gradient(#ECECEC,#CCC);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#cccccc');
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#cccccc');
+	background: linear-gradient(#ECECEC,#CCC);
+	outline: 0;
+	border: 1px solid #8C8C8C;
+	color: black;
+	text-shadow: 0 -1px 2px rgba(255, 255, 255, 0.5);
+	font-weight: bold;
+}
+.inputGrande td input{
+	width: 460px;
+	float: right;
+	margin-left: 10px;
+	margin-top: -5px;
+}
+
+.inputGrande td label{
+  margin-left: 30px;
+}
+
+.fecha-general input{
+	width: 142px;
+}
+
+.divObservacion{
+	margin-left: 10px;
+}
+.divObservacion td textarea{
+ margin-left: 9px;
+	
+}
+.divObservacion td{
+    padding-top: 2px;
+   /* text-align: center;   acaaaaa*/
+	height: 30px; 	
+}
+
+.divObservacion td label{
+	margin-right: 2px;
+	margin-left: 9px; 
+	float: right;
+}
+
+.columna-centrada{
+	text-align: center;
+}
+
+.columna-cantidad{
+	text-align: right !important;
+}
