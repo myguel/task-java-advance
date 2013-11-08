@@ -8,24 +8,28 @@
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
-	<security:http use-expressions="true">
-		<security:intercept-url pattern="/protected.jsf"
-			access="isAuthenticated()" />
-		<security:intercept-url pattern="/*" access="permitAll()" />
-		<security:form-login login-page="/login.jsf" />
-		<security:logout />
-	</security:http>
+
+	<security:http auto-config="true" use-expressions="true">
+        <security:intercept-url pattern="/pages/secure/**" access="hasRole('ROLE_USER')" />
+        <security:intercept-url pattern="/pages/public/**" access="permitAll"/>
+        <security:intercept-url pattern="/resources/css/**" access="permitAll"/>
+        <security:intercept-url pattern="/resources/fonts/**" access="permitAll" />
+        <security:intercept-url pattern="/resources/images/**" access="permitAll"/>
+        <security:intercept-url pattern="/resources/js/**" access="permitAll"/>
+        <security:intercept-url pattern="/**" access="permitAll"/>
+        <security:form-login login-page="/login.xhtml"/>        
+        <security:logout
+            invalidate-session="true"
+            delete-cookies="JSESSIONID,SPRING_SECURITY_REMEMBER_ME_COOKIE"
+            logout-success-url="/login.xhtml"></security:logout>
+    </security:http>
+
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:password-encoder hash="md5" />
-			<security:user-service>
-				<security:user name="miguel" password="9eb0c9605dc81a68731f61b3e0838937"
-					authorities="ROLE_SUPERVISOR, ROLE_USER" />
-				<security:user name="juan" password="a94652aa97c7211ba8954dd15a3cf838"
-					authorities="ROLE_USER" />
-			</security:user-service>
+			<security:jdbc-user-service data-source-ref="dataSource"
+			users-by-username-query="SELECT  usuario_login AS username, usuario_password AS password, estado AS enabled FROM usuario WHERE usuario_login=?" 
+			authorities-by-username-query="SELECT u.usuario_login AS username, ur.permiso AS authority FROM usuario u LEFT JOIN usuario_rol ur ON u.usuario_id = ur.usuario_id WHERE  u.usuario_login=?"/>
 		</security:authentication-provider>
 	</security:authentication-manager>
-
 
 </beans>
