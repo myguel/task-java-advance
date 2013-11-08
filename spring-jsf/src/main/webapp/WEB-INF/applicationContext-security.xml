@@ -16,6 +16,7 @@
         <security:intercept-url pattern="/resources/fonts/**" access="permitAll" />
         <security:intercept-url pattern="/resources/images/**" access="permitAll"/>
         <security:intercept-url pattern="/resources/js/**" access="permitAll"/>
+        <security:intercept-url pattern="/resources/templates/**" access="permitAll"/>
         <security:intercept-url pattern="/**" access="permitAll"/>
         <security:form-login login-page="/login.xhtml"/>        
         <security:logout
