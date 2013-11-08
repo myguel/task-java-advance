@@ -8,23 +8,15 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	
+
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<h:outputStylesheet library="css"
-		name="styles-zona-privada-otra-propuesta.css" />
-	<h:outputStylesheet library="css" name="styles-custom-aristo.css" />
-	<script type="text/javascript"
-		src="#{request.contextPath}/resources/javascript/funciones.js"></script>
-	
-	<h:outputScript library="javascript" name="funcionesUtiles.js"
-		target="head" />
-	<script type="text/javascript"
-		src="#{request.contextPath}/resources/javascript/idiomaFechasPrimefaces.js"></script>
+	<h:outputStylesheet library="css" name="styles-main.css" />
+	<h:outputStylesheet library="css" name="styles-aristo.css" />
 
 	<title><ui:insert name="title" /></title>
 </h:head>
 <h:body>
-<script type="text/javascript">
+	<script type="text/javascript">
 
 function ajaxSessionTimeout(){
 			sessionDialog.show();
@@ -39,15 +31,12 @@ function ajaxSessionTimeout(){
 		    });
 		}(window.jQuery);
 	</script>
-	
+
 	<div id="layout">
-	
+
 		<div id="header">
 			<table class="header-tabla" cellspacing="0px">
 				<tr>
-					<td class="header-left"><h:graphicImage library="images"
-							styleClass="logo" name="logo-divermotor.png" /></td>
-
 					<td class="header-left">
 						<div style="float: right;">
 							<table>
@@ -75,8 +64,7 @@ function ajaxSessionTimeout(){
 											styleClass="icono-encabezado" /></td>
 									<td><h:form prependId="true">
 											<p:commandLink onstart="esCerrarSession=true;"
-												action="#{loginController.cerrarSession}"
-												process="@this">
+												action="#{loginController.cerrarSession}" process="@this">
 
 												<h:graphicImage library="images" name="salir.png"
 													styleClass="icono-encabezado" alt="Salir" title="Salir" />
@@ -84,7 +72,6 @@ function ajaxSessionTimeout(){
 										</h:form></td>
 								</tr>
 							</table>
-
 						</div>
 					</td>
 				</tr>
@@ -117,10 +104,10 @@ function ajaxSessionTimeout(){
 					</div>
 
 					<div id="todito">
-						
+
 						<ui:include src="session-time-out-interno.xhtml" />
-						
-						<ui:insert name="content">
+
+						<ui:insert name="content" >
 							<span>Pagina en construccion</span>
 						</ui:insert>
 					</div>
@@ -131,7 +118,9 @@ function ajaxSessionTimeout(){
 
 				<div id="footer">
 					<div id="content-footer">
-						<h:outputLabel>#{loginController.mensajeCopyright}</h:outputLabel>
+						<h:outputFormat value="#{msg['sistema.footer']}" style="font-size:10px;">
+							<f:param value="2013" />
+						</h:outputFormat>
 					</div>
 				</div>
 
@@ -142,8 +131,11 @@ function ajaxSessionTimeout(){
 		<div id="menu">
 			<ui:include src="zona-privada-menu.xhtml" />
 		</div>
-		<p:dialog showHeader="false" id="load" modal="true" width="51" widgetVar="wvLoad" draggable="false" closable="false" resizable="false">
-			<h:graphicImage height="25px" style="margin-top:0px;" width="25px;" library="images" name="loading.gif"></h:graphicImage>
+		<p:dialog showHeader="false" id="load" modal="true" width="51"
+			widgetVar="wvLoad" draggable="false" closable="false"
+			resizable="false">
+			<h:graphicImage height="25px" style="margin-top:0px;" width="25px;"
+				library="images" name="loading.gif"></h:graphicImage>
 		</p:dialog>
 
 	</div>

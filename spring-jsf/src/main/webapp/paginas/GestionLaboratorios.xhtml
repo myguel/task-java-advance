@@ -5,14 +5,14 @@
 	xmlns:p="http://primefaces.org/ui"
 	template="/facelets/templates/zona-privada-principal.xhtml">
 
-	<ui:define name="title"> Gesti&#243;n de Laboratorios </ui:define>
-	<ui:define name="nameForm"> Gesti&#243;n de Laboratorios </ui:define>
-	<ui:define name="content">
+	<ui:define name="title"> #{msg['laboratorio.titulo']} </ui:define>
+	<ui:define name="nameForm"> #{msg['laboratorio.titulo']} </ui:define>
+	<ui:define name="content" >
 		<p:growl id="growl" showDetail="true" sticky="false" life="4500" globalOnly="true" />
 
 		<h:form id="formBusqueda" styleClass="ui-widget" prependId="false">
 			<div id="sub-header">
-				<div id="nameForm">Gesti&#243;n de Laboratorios</div>
+				<div id="nameForm">#{msg['laboratorio.titulo']}</div>
 				<div id="toolBar">
 					<p:commandLink ajax="true" styleClass="butonSmall" id="buscar"
 						action="#{laboratorioController.buscarLaboratorios}" update="plgDtMotivo">
@@ -35,15 +35,15 @@
 					<p:defaultCommand target="buscar" /> 
 				</div>
 			</div>
-			<div id="content">
+			<div id="content" style="min-height: 358px;">
 				<div class="panel-filtro">
 					<h:panelGroup id="plgFiltro">
 						<p:panelGrid columns="4">
-							<h:outputLabel styleClass="label-general"  value="Nombre: "/>
+							<h:outputLabel styleClass="label-general"  value="#{msg['laboratorio.filtro.nombre']}"/>
 							<p:inputText styleClass="input-general" maxlength="50"
 								value="#{laboratorioController.laboratorio.nombre}" />
 								
-							<h:outputLabel styleClass="label-general" value="Estado: "/>
+							<h:outputLabel styleClass="label-general" value="#{msg['laboratorio.filtro.estado']}"/>
 							<p:selectOneMenu styleClass="select-general"
 								value="#{laboratorioController.laboratorio.estado}">
 								<f:selectItem itemLabel="Seleccione" itemValue="-" />
@@ -66,18 +66,18 @@
 						currentPageReportTemplate="{currentPage} de {totalPages}" >
 
 						<p:column sortBy="#{lab.nombre}" id="colMotivo"
-							headerText="Nombre" >
+							headerText="#{msg['laboratorio.resultados.column1']}" >
 							<h:outputText value="#{lab.nombre}" />
 						</p:column>
 
 						<p:column id="colEstado" headerText="Duracion"
 							style="text-align: center;" >
-							<h:outputText value="#{lab.duracion}" />
+							<h:outputText value="#{msg['laboratorio.resultados.column2']}" />
 						</p:column>
 
 						<p:column styleClass="boton-data-table-centrado">
 							<f:facet name="header">
-								<h:outputText value=" " />
+								<h:outputText value="#{msg['laboratorio.resultados.column3']}" />
 							</f:facet>
 							<p:commandLink id="cmlLaboratorioEditar"
 								oncomplete="wvDlgMotivoEditar.show();" 
@@ -91,7 +91,7 @@
 
 						<p:column styleClass="boton-data-table-centrado">
 							<f:facet name="header">
-								<h:outputText value=" " />
+								<h:outputText value="#{msg['laboratorio.resultados.column4']}" />
 							</f:facet>
 							<p:commandLink id="cmlLaboratorioEliminar" immediate="true"
 								oncomplete="wvDlgMotivoEliminar.show();">
@@ -101,8 +101,6 @@
 									target="#{laboratorioController.eliminarLaboratorios}" />
 							</p:commandLink>
 						</p:column>
-
-						
 					</p:dataTable>
 				</h:panelGroup>				
 			</div>

@@ -12,24 +12,28 @@
 	<!-- </el-resolver> -->
 	<!-- </application> -->
 
-<!-- 	<application> -->
-<!-- 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver> -->
-<!-- 		<resource-bundle> -->
-<!-- 			<base-name>pe.edu.cibertec.i18n.ApplicationResource</base-name> -->
-<!-- 			<var>msg</var> -->
-<!-- 		</resource-bundle> -->
-<!-- 	</application> -->
-	
-	 <application>	   
-           <locale-config>  
-                <default-locale>en</default-locale>                  
-           </locale-config>  
-           <resource-bundle>  
-                <base-name>pe.edu.cibertec.i18n.ApplicationResource</base-name>
-                <var>msg</var>  
-           </resource-bundle>  
-           <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>  
-      </application>  
+	<!-- <application> -->
+	<!-- <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver> -->
+	<!-- <resource-bundle> -->
+	<!-- <base-name>pe.edu.cibertec.i18n.ApplicationResource</base-name> -->
+	<!-- <var>msg</var> -->
+	<!-- </resource-bundle> -->
+	<!-- </application> -->
+
+	<application>
+		<locale-config>
+			<default-locale>es</default-locale>
+			<supported-locale>en</supported-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>ApplicationResource</base-name>
+			<var>msg</var>
+		</resource-bundle>
+
+<!-- 		<message-bundle>Messages</message-bundle> -->
+
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	</application>
 
 
 </faces-config>

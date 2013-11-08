@@ -3,7 +3,12 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	<h:form >
-		<p:panelMenu  model="#{menuController.modeloMenu}" ></p:panelMenu>
+	<h:form>
+		<p:panelMenu>  
+        <p:submenu label="#{msg['sistema.menu0.titulo']}">  
+            <p:menuitem value="#{msg['sistema.menu0.item0']}" url="/paginas/GestionLaboratorios.jsf" />  
+        </p:submenu>  
+         
+    </p:panelMenu>  
 	</h:form>
 </ui:composition>
