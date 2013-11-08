@@ -18,11 +18,11 @@
         <security:intercept-url pattern="/resources/js/**" access="permitAll"/>
         <security:intercept-url pattern="/resources/templates/**" access="permitAll"/>
         <security:intercept-url pattern="/**" access="permitAll"/>
-        <security:form-login login-page="/login.xhtml"/>        
+        <security:form-login login-page="/pages/public/login.xhtml"/>        
         <security:logout
             invalidate-session="true"
             delete-cookies="JSESSIONID,SPRING_SECURITY_REMEMBER_ME_COOKIE"
-            logout-success-url="/login.xhtml"></security:logout>
+            logout-success-url="/pages/public/login.xhtml"></security:logout>
     </security:http>
 
 	<security:authentication-manager>

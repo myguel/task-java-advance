@@ -105,7 +105,7 @@ function ajaxSessionTimeout(){
 
 					<div id="todito">
 
-						<ui:include src="session-time-out-interno.xhtml" />
+						<ui:include src="timeout.xhtml" />
 
 						<ui:insert name="content" >
 							<span>Pagina en construccion</span>
@@ -129,7 +129,7 @@ function ajaxSessionTimeout(){
 		</div>
 
 		<div id="menu">
-			<ui:include src="zona-privada-menu.xhtml" />
+			<ui:include src="protected.xhtml" />
 		</div>
 		<p:dialog showHeader="false" id="load" modal="true" width="51"
 			widgetVar="wvLoad" draggable="false" closable="false"
