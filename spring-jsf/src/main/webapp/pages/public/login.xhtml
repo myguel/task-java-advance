@@ -1,30 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
-	<ui:define name="content">
-		<h:body>
-			<h:form id="loginForm" prependId="false">				
-				<h:messages globalOnly="true" />				
-				<h:panelGrid columns="3">
-					<h:outputLabel for="j_username" value="User: * " />
-					<h:inputText id="j_username" required="true" label="username" />
-					<h:message for="j_username" display="text" style="color:red" />
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body style="text-align:center">
+	<h:form id="loginForm" prependId="false">
+		<p:panelGrid columns="2">
+			<h:outputLabel for="j_username" value="Username:" />
+			<p:inputText id="j_username" required="true"
+				value="#{mbUsuario.usuario}">
+			</p:inputText>
 
-					<h:outputLabel for="j_password" value="Password: * " />
-					<h:inputSecret id="j_password" label="password" required="true" />
-					<h:message for="j_password" display="text" style="color:red" />
+			<h:outputLabel for="j_password" value="Password:" />
+			<p:password id="j_password" required="true"
+				value="#{mbUsuario.password}">
+			</p:password>
 
-					<h:outputLabel for="_spring_security_remember_me"
-						value="Remember me: " />
-					<h:selectBooleanCheckbox id="_spring_security_remember_me" />
-				</h:panelGrid>
+			<h:outputText for="_spring_security_remember_me" value="Remember me" />
+			<p:selectBooleanCheckbox id="_spring_security_remember_me"/>
 
-				<h:commandButton type="submit" id="login" value="Login"	action="#{mbUsuario.postLogin}" />
-			</h:form>
-		</h:body>
-	</ui:define>
-</ui:composition>
+			<f:facet name="footer">
+				<p:commandButton type="submit" id="login" ajax="false"
+					actionListener="#{mbUsuario.postLogin}" value="Login" />
+			</f:facet>
+		</p:panelGrid>
+	</h:form>
+</h:body>
+
+</html>
