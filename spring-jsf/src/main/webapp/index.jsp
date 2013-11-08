@@ -1,1 +1,1 @@
-<jsp:forward page="/pages/public/login.xhtml"></jsp:forward>
+<jsp:forward page="/pages/secure/GestionLaboratorios.xhtml"></jsp:forward>
