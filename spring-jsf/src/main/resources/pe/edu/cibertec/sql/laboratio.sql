@@ -44,3 +44,11 @@ CREATE TABLE laboratorio (
   CONSTRAINT FK_pro_lab FOREIGN  KEY (programa_id) REFERENCES programa(programa_id),
   CONSTRAINT FK_pro_prof FOREIGN  KEY( profesor_id) REFERENCES profesor(profesor_id)
 ) ;
+
+DROP TABLE IF EXISTS auditoria;
+CREATE TABLE auditoria(
+auditoria_id integer NOT NULL AUTO_INCREMENT, 
+fecha date not null,
+valor varchar(50) not null,
+CONSTRAINT PRIMARY KEY (auditoria_id)
+);
