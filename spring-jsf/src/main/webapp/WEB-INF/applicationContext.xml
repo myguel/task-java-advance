@@ -28,6 +28,15 @@
 	<bean class="org.springframework.orm.jpa.JpaTransactionManager"	id="transactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
+ <aop:config>
+        
+        
+        <aop:aspect id="aspectoAuditoria" ref="auditoriaInterceptor" >
+            <aop:pointcut id="beforeDeleteLaboratorioPointCut" expression="execution(* pe.edu.cibertec.core.service.impl.LaboratorioServiceImpl.delete(..))"/>
+            <aop:before method="beforeDeleteLaboratorioInterceptor" pointcut-ref="beforeDeleteLaboratorioPointCut" />
+        </aop:aspect>
+       
+    </aop:config>
 
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
