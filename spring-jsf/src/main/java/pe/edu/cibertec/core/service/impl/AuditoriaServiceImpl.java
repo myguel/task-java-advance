@@ -4,42 +4,51 @@
  */
 package pe.edu.cibertec.core.service.impl;
 
-import java.util.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import pe.edu.cibertec.core.domain.Auditoria;
 import pe.edu.cibertec.core.service.AuditoriaService;
-import pe.edu.cibertec.core.dao.AuditoriaDAO;
-import pe.edu.cibertec.core.domain.*;
 
 /**
  *
  * @author jpadilla
  */
-@Service("auditoriaService")
+@Service
 public class AuditoriaServiceImpl implements AuditoriaService {
 
-    @Autowired
-    AuditoriaDAO dao;
+	@Override
+	public void save(Auditoria t) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    public List<Auditoria> list() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	@Override
+	public void update(Auditoria t) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    public Auditoria getById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	@Override
+	public Auditoria get(Auditoria t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    @Transactional
-    public void insert(Auditoria auditoria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	@Override
+	public List<Auditoria> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    public void update(Auditoria auditoria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	@Override
+	public void delete(Auditoria t) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    public void delete(Auditoria auditoria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	
+
+   
 }

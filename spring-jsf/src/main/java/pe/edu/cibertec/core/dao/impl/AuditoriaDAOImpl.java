@@ -4,42 +4,54 @@
  */
 package pe.edu.cibertec.core.dao.impl;
 
-import java.util.*;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+
 import pe.edu.cibertec.core.dao.AuditoriaDAO;
-import pe.edu.cibertec.core.domain.*;
+import pe.edu.cibertec.core.domain.Auditoria;
 
 /**
  *
  * @author jpadilla
  */
-@Repository("auditoriaDao")
+@Repository
 public class AuditoriaDAOImpl implements AuditoriaDAO {
 
     @PersistenceContext
     private EntityManager em;
 
-    public List<Auditoria> list() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	@Override
+	public void save(Auditoria t) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    public Auditoria getById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	@Override
+	public void update(Auditoria t) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    @Transactional
-    public void insert(Auditoria auditoria) {
-        em.persist(auditoria);
-    }
+	@Override
+	public Auditoria get(Auditoria t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    public void update(Auditoria auditoria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	@Override
+	public List<Auditoria> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    public void delete(Auditoria auditoria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	@Override
+	public void delete(Auditoria t) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
