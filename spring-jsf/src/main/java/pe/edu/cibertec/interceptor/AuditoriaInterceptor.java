@@ -30,7 +30,7 @@ public class AuditoriaInterceptor {
         Auditoria auditoria = new Auditoria();
         auditoria.setFecha(new Date());
         auditoria.setValor("Eliminado: " + laboratorio.toString());
-        service.insert(auditoria);
+        service.save(auditoria);
     }
 
     @After("execution(* pe.edu.cibertec.core.dao.impl.LaboratorioDaoImpl.delete(pe.edu.cibertec.core.domain.Laboratorio)) && args(laboratorio)")
@@ -38,22 +38,22 @@ public class AuditoriaInterceptor {
         Auditoria auditoria = new Auditoria();
         auditoria.setFecha(new Date());
         auditoria.setValor("Eliminado: " + laboratorio.toString());
-        service.insert(auditoria);
+        service.save(auditoria);
     }
 
-    public void beforeInsertAutorInterceptor(JoinPoint joinPoint) {
+    public void beforeSaveAutorInterceptor(JoinPoint joinPoint) {
         Laboratorio laboratorio = (Laboratorio) joinPoint.getArgs()[0];
         Auditoria auditoria = new Auditoria();
         auditoria.setFecha(new Date());
         auditoria.setValor("Insertado: " + laboratorio.toString());
-        service.insert(auditoria);
+        service.save(auditoria);
     }
 
     @After("execution(* pe.edu.cibertec.core.dao.impl.LaboratorioDaoImpl.save(pe.edu.cibertec.core.domain.Laboratorio)) && args(laboratorio)")
-    public void afterInsertLaboratorioInterceptor(Laboratorio laboratorio) {
+    public void afterSaveLaboratorioInterceptor(Laboratorio laboratorio) {
         Auditoria auditoria = new Auditoria();
         auditoria.setFecha(new Date());
         auditoria.setValor("Insertado: " + laboratorio.toString());
-        service.insert(auditoria);
+        service.save(auditoria);
     }
 }
