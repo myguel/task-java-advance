@@ -17,7 +17,7 @@ import pe.edu.cibertec.core.domain.*;
  * @author jpadilla
  */
 @Repository("auditoriaDao")
-public class AuditoriaDaoImpl implements AuditoriaDAO {
+public class AuditoriaDAOImpl implements AuditoriaDAO {
 
     @PersistenceContext
     private EntityManager em;
