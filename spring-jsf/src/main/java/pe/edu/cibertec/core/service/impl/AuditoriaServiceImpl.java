@@ -5,8 +5,10 @@
 package pe.edu.cibertec.core.service.impl;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
+import pe.edu.cibertec.core.dao.AuditoriaDAO;
 
 import pe.edu.cibertec.core.domain.Auditoria;
 import pe.edu.cibertec.core.service.AuditoriaService;
@@ -15,40 +17,39 @@ import pe.edu.cibertec.core.service.AuditoriaService;
  *
  * @author jpadilla
  */
-@Service
+@Service("auditoriaService")
 public class AuditoriaServiceImpl implements AuditoriaService {
 
-	@Override
+     @Autowired
+    AuditoriaDAO dao;
+	
 	public void save(Auditoria t) {
 		// TODO Auto-generated method stub
-		
+//		 dao.insert(auditoria);
+                dao.save(t);
 	}
 
-	@Override
+	
 	public void update(Auditoria t) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public Auditoria get(Auditoria t) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public List<Auditoria> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public void delete(Auditoria t) {
 		// TODO Auto-generated method stub
 		
 	}
-
-	
-
-   
 }
