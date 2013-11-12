@@ -2,21 +2,27 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package pe.edu.cibertec.core.service.impl;
+package pe.edu.cibertec.core.dao.impl;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
+
+import pe.edu.cibertec.core.dao.AuditoriaDAO;
 import pe.edu.cibertec.core.domain.Auditoria;
-import pe.edu.cibertec.core.service.AuditoriaService;
 
 /**
  *
  * @author jpadilla
  */
-@Service
-public class AuditoriaServiceImpl implements AuditoriaService {
+@Repository
+public class AuditoriaDAOImpl implements AuditoriaDAO {
+
+    @PersistenceContext
+    private EntityManager em;
 
 	@Override
 	public void save(Auditoria t) {
@@ -48,7 +54,4 @@ public class AuditoriaServiceImpl implements AuditoriaService {
 		
 	}
 
-	
-
-   
 }
