@@ -23,6 +23,7 @@ public class LaboratorioServiceTest extends AbstractJunitTest {
     private LaboratorioService laboratorioService;
 
     @Test
+    @Ignore
     public void getAll() {
         List<Laboratorio> laboratorios = laboratorioService.getAll();
 //		Assert.assertEquals(laboratorios.size(), 3);
@@ -30,7 +31,7 @@ public class LaboratorioServiceTest extends AbstractJunitTest {
             logger.info("Data: " + laboratorio.getNombre());
         }
     }
-    @Ignore
+    
     @Test
     @Rollback(false)
     public void save(){
@@ -38,7 +39,7 @@ public class LaboratorioServiceTest extends AbstractJunitTest {
     	laboratorio.setDuracion(4);
     	laboratorio.setEstado(true);
     	laboratorio.setFecha(new Date());
-    	laboratorio.setNombre("LP");
+    	laboratorio.setNombre("LPII");
     	laboratorio.setPrecio(new BigDecimal(451.5));
     	laboratorio.setProfesor(new Profesor(1));
     	laboratorio.setPrograma(new Programa(1));
