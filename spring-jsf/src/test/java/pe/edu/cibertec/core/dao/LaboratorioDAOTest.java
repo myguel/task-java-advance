@@ -1,10 +1,9 @@
-package pe.edu.cibertec.core.service;
+package pe.edu.cibertec.core.dao;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,16 +15,15 @@ import pe.edu.cibertec.core.domain.Laboratorio;
 import pe.edu.cibertec.core.domain.Profesor;
 import pe.edu.cibertec.core.domain.Programa;
 
-public class LaboratorioServiceTest extends AbstractJunitTest {
+public class LaboratorioDAOTest extends AbstractJunitTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(LaboratorioServiceTest.class);
+    private static final Logger logger = LoggerFactory.getLogger(LaboratorioDAOTest.class);
     @Autowired
-    private LaboratorioService laboratorioService;
+    private LaboratorioDAO laboratorioDAO;
 
-    @Test
-    @Ignore
+    @Test    
     public void getAll() {
-        List<Laboratorio> laboratorios = laboratorioService.getAll();
+        List<Laboratorio> laboratorios = laboratorioDAO.getAll();
 //		Assert.assertEquals(laboratorios.size(), 3);
         for (Laboratorio laboratorio : laboratorios) {
             logger.info("Data: " + laboratorio.getNombre());
@@ -42,7 +40,7 @@ public class LaboratorioServiceTest extends AbstractJunitTest {
     	laboratorio.setPrecio(new BigDecimal(451.5));
     	laboratorio.setProfesor(new Profesor(1));
     	laboratorio.setPrograma(new Programa(1));
-    	laboratorioService.save(laboratorio);
+    	laboratorioDAO.save(laboratorio);
     }
     
 }

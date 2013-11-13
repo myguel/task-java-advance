@@ -53,6 +53,9 @@ public class Laboratorio implements Serializable{
 	
 	public Laboratorio() {
 	}
+	public Laboratorio(Long id) {
+		this.laboratorioId=id;
+	}
 	
 	public Laboratorio(String nombre, Integer duracion) {
 		this.nombre = nombre;

@@ -10,6 +10,7 @@ import pe.edu.cibertec.core.domain.Laboratorio;
 @Repository
 public class LaboratorioDAOImpl extends AbstractDAOImpl<Laboratorio> implements LaboratorioDAO {
 	private static final Logger logger=LoggerFactory.getLogger(LaboratorioDAOImpl.class);
+	
 
 
 }

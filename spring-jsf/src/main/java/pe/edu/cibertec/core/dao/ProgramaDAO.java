@@ -1,5 +1,7 @@
 package pe.edu.cibertec.core.dao;
 
-public interface ProgramaDAO {
+import pe.edu.cibertec.core.domain.Programa;
+
+public interface ProgramaDAO extends GenericDAO<Programa>{
 
 }

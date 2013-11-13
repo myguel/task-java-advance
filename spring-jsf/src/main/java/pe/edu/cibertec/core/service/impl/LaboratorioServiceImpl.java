@@ -13,7 +13,7 @@ import pe.edu.cibertec.core.dao.LaboratorioDAO;
 import pe.edu.cibertec.core.domain.Laboratorio;
 import pe.edu.cibertec.core.service.LaboratorioService;
 @Service
-@Transactional(readOnly=true,propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
+@Transactional
 public class LaboratorioServiceImpl implements LaboratorioService {
 
 	private static final Logger logger=LoggerFactory.getLogger(LaboratorioServiceImpl.class);

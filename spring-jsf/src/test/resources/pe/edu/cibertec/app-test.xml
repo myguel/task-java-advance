@@ -12,8 +12,8 @@
 
 	<context:annotation-config />
 	<context:component-scan base-package="pe.edu.cibertec"></context:component-scan>
-<!-- 	<aop:aspectj-autoproxy/> -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"	destroy-method="close">
+	<aop:aspectj-autoproxy/>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"  destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/bd_examen" />
 		<property name="username" value="root" />
@@ -21,25 +21,28 @@
 	</bean>
 
 	<bean id="entityManagerFactory"		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+<!-- 		<property name="persistenceXmlLocation" value="classpath:persistence.xml"/> -->
 		<property name="dataSource" ref="dataSource" />
 		<property name="persistenceUnitName" value="JpaPersistenceUnit" />
 	</bean>
 
 	<bean class="org.springframework.orm.jpa.JpaTransactionManager"	id="transactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
+
 
  <aop:config>
         
         <aop:aspect id="aspectoAuditoria" ref="auditoriaInterceptor" >
-<!--             @Before -->
+<!--             @Before  -->
             <aop:pointcut id="beforeDeleteLaboratorioPointCut" expression="execution(* pe.edu.cibertec.core.service.impl.LaboratorioServiceImpl.delete(..))"/>
             <aop:before method="beforeDeleteLaboratorioInterceptor" pointcut-ref="beforeDeleteLaboratorioPointCut" />
             
             <aop:pointcut id="beforeSaveLaboratorioPointCut" expression="execution(* pe.edu.cibertec.core.service.impl.LaboratorioServiceImpl.save(..))"/>
             <aop:before method="beforeSaveLaboratorioInterceptor" pointcut-ref="beforeSaveLaboratorioPointCut" />
             
-<!--             @After  -->
+<!--              @After   -->
             <aop:pointcut id="afterDeleteLaboratorioPointCut" expression="execution(* pe.edu.cibertec.core.service.impl.LaboratorioServiceImpl.delete(..))"/>
             <aop:before method="afterDeleteLaboratorioInterceptor" pointcut-ref="afterDeleteLaboratorioPointCut" />
             
@@ -48,7 +51,6 @@
         </aop:aspect>
        
     </aop:config>
-
 
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	

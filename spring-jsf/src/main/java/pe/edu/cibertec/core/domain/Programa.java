@@ -11,50 +11,61 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 /**
  * 
  * @author mliberato
- *
+ * 
  */
 @Entity
-@Table(name="programa")
+@Table(name = "programa")
 public class Programa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="programa_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "programa_id")
 	private Integer programaId;
-	@Column(name="nombre")
+	@Column(name = "nombre")
 	private String nombre;
-	@Column(name="estado")
+	@Column(name = "estado")
 	private Boolean estado;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "programa")
 	private List<Laboratorio> laboratorios;
+
 	public Programa() {
-		
+
 	}
+
+	public Programa(Integer id) {
+		this.programaId=id;
+	}
+
 	public Integer getProgramaId() {
 		return programaId;
 	}
+
 	public void setProgramaId(Integer programaId) {
 		this.programaId = programaId;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 	public Boolean getEstado() {
 		return estado;
 	}
+
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
 	/**
 	 * 
 	 */
-	
 
 }

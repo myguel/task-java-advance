@@ -8,6 +8,5 @@ import pe.edu.cibertec.core.dao.impl.AbstractDAOImpl;
 @Repository
 public class AuditoriaDAOImpl extends AbstractDAOImpl<Auditoria> implements AuditoriaDAO{
 
-	
 
 }
