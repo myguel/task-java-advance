@@ -12,8 +12,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import pe.edu.cibertec.audit.domain.Auditoria;
 import pe.edu.cibertec.audit.service.AuditoriaService;
-import pe.edu.cibertec.core.domain.Auditoria;
 import pe.edu.cibertec.core.domain.Laboratorio;
 
 /**

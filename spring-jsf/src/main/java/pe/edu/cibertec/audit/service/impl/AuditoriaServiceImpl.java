@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pe.edu.cibertec.audit.dao.AuditoriaDAO;
+import pe.edu.cibertec.audit.domain.Auditoria;
 import pe.edu.cibertec.audit.service.AuditoriaService;
-import pe.edu.cibertec.core.domain.Auditoria;
 
 /**
  *

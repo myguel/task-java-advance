@@ -1,40 +1,11 @@
 package pe.edu.cibertec.audit.dao.impl;
 
-import java.util.List;
-
 import pe.edu.cibertec.audit.dao.AuditoriaDAO;
-import pe.edu.cibertec.core.domain.Auditoria;
+import pe.edu.cibertec.audit.domain.Auditoria;
+import pe.edu.cibertec.core.dao.impl.AbstractDAOImpl;
 
-public class AuditoriaDAOImpl implements AuditoriaDAO{
+public class AuditoriaDAOImpl extends AbstractDAOImpl<Auditoria> implements AuditoriaDAO{
 
-	@Override
-	public void save(Auditoria t) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void update(Auditoria t) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Auditoria get(Auditoria t) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Auditoria> getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void delete(Auditoria t) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }
