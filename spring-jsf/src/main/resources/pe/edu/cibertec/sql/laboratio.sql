@@ -7,6 +7,14 @@ usuario_password varchar(100) not null,
 constraint pk_usuario primary key(usuario_id)
 );
 
+CREATE TABLE usuario_rol (
+  usuario_rol_id int(10) NOT NULL AUTO_INCREMENT,
+  usuario_id int(11) DEFAULT NULL,
+  permiso varchar(45) NOT NULL,
+  PRIMARY KEY (usuario_rol_id),
+  KEY FK_usuario_rol (usuario_id),
+  CONSTRAINT FK_usuario_rol FOREIGN KEY (usuario_id) REFERENCES usuario (usuario_id)
+) ;
 
 DROP TABLE IF EXISTS programa;
 CREATE TABLE programa(
@@ -52,3 +60,18 @@ fecha date not null,
 valor varchar(50) not null,
 CONSTRAINT PRIMARY KEY (auditoria_id)
 );
+
+
+insert into usuario(usuario_id,nombre,usuario_login,usuario_password,estado) values (1,'MIGUEL LIBERATO','myguel','myguel123',1);
+insert into usuario(usuario_id,nombre,usuario_login,usuario_password,estado) values (2,'ROCIO MANYA','rocio','rocio123',1);
+insert into usuario(usuario_id,nombre,usuario_login,usuario_password,estado) values (3,'Willam Yamunaque','willy','willy123',1);
+insert into usuario(usuario_id,nombre,usuario_login,usuario_password,estado) values (4,'Juan Padilla','juan','juan123',1);
+
+
+
+insert into usuario_rol(usuario_rol_id,usuario_id,permiso) values (1,1,'ROL_ADMINISTRADOR');
+insert into usuario_rol(usuario_rol_id,usuario_id,permiso) values (2,2,'ROL_DIRECTOR');
+insert into usuario_rol(usuario_rol_id,usuario_id,permiso) values (3,3,'ROL_INVITADO');
+insert into usuario_rol(usuario_rol_id,usuario_id,permiso) values (4,4,'ROL_USER');
+
+

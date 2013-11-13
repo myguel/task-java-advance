@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import pe.edu.cibertec.common.AbstractJunitTest;
 import pe.edu.cibertec.core.domain.Laboratorio;
-import pe.edu.cibertec.core.domain.Profesor;
-import pe.edu.cibertec.core.domain.Programa;
 
 public class LaboratorioServiceTest extends AbstractJunitTest {
 
