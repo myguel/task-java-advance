@@ -2,6 +2,7 @@ package pe.edu.cibertec.core.dao.impl;
 
 import java.util.List;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import pe.edu.cibertec.core.dao.LaboratorioDAO;
 import pe.edu.cibertec.core.domain.Laboratorio;
+
 @Repository
 public class LaboratorioDAOImpl  implements LaboratorioDAO {
 	private static final Logger logger=LoggerFactory.getLogger(LaboratorioDAOImpl.class);

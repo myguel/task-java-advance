@@ -9,20 +9,21 @@
 	<name>spring-jsf</name>
 	<url>http://maven.apache.org</url>
 
-
+	<!-- se define propiedades para el manejo de versiones de las dependencias -->
 	<properties>
 		<spring.core.version>3.1.1.RELEASE</spring.core.version>
+		<spring-security.version>3.1.1.RELEASE</spring-security.version>
 		<java.version>1.6</java.version>
 		<mysql.version>5.1.17</mysql.version>
 		<prime.version>3.1.1</prime.version>
 		<jsf.version>2.1.6</jsf.version>
 		<junit.version>4.8.2</junit.version>
-		<spring-security.version>3.1.1.RELEASE</spring-security.version>
 		<prime.theme>1.0.1</prime.theme>
+		<project.enconde>UTF-8</project.enconde>
 	</properties>
 
 	<dependencies>
-
+		<!-- prime faces -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
@@ -108,13 +109,12 @@
 			<version>${jsf.version}</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>com.sun.el</groupId>
 			<artifactId>el-ri</artifactId>
 			<version>1.0</version>
 		</dependency>
-		<!-- Primefaces -->
+
 
 		<!-- MySQL -->
 		<dependency>
@@ -157,7 +157,7 @@
 			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- jst -->
+		<!-- jstl -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -179,6 +179,7 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
+		<!-- impl eclipse para jpa -->
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
@@ -196,17 +197,12 @@
 			<artifactId>cglib</artifactId>
 			<version>2.2</version>
 		</dependency>
-	 <dependency>
-	  <groupId>javax.annotation</groupId>
-	  <artifactId>jsr250-api</artifactId>
-	  <version>1.0</version>
-	  <scope>provided</scope>
-	 </dependency>
-	 <dependency>
-	  <groupId>org.aspectj</groupId>
-	  <artifactId>aspectjrt</artifactId>
-	  <version>1.6.11</version>
-	 </dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.6.11</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -218,6 +214,7 @@
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
+					<encoding>${project.enconde}</encoding>
 				</configuration>
 			</plugin>
 		</plugins>

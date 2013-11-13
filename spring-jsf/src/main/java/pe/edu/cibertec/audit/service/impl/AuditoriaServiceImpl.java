@@ -2,16 +2,16 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package pe.edu.cibertec.core.service.impl;
+package pe.edu.cibertec.audit.service.impl;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
-import pe.edu.cibertec.core.dao.AuditoriaDAO;
 
+import pe.edu.cibertec.audit.dao.AuditoriaDAO;
+import pe.edu.cibertec.audit.service.AuditoriaService;
 import pe.edu.cibertec.core.domain.Auditoria;
-import pe.edu.cibertec.core.service.AuditoriaService;
 
 /**
  *

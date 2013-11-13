@@ -2,17 +2,19 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package pe.edu.cibertec.interceptor;
+package pe.edu.cibertec.audit.interceptor;
 
 import java.util.Date;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import pe.edu.cibertec.audit.service.AuditoriaService;
 import pe.edu.cibertec.core.domain.Auditoria;
 import pe.edu.cibertec.core.domain.Laboratorio;
-import pe.edu.cibertec.core.service.AuditoriaService;
 
 /**
  *
@@ -23,7 +25,7 @@ import pe.edu.cibertec.core.service.AuditoriaService;
 public class AuditoriaInterceptor {
 
     @Autowired
-    AuditoriaService service;
+    private AuditoriaService service;
 
     public void beforeDeleteLaboratorioInterceptor(JoinPoint joinPoint) {
         Laboratorio laboratorio = (Laboratorio) joinPoint.getArgs()[0];
