@@ -13,7 +13,7 @@ import pe.edu.cibertec.core.service.GenericService;
  *
  * @author jpadilla
  */
-@Service("auditoriaService")
+
 public interface AuditoriaService extends GenericService<Auditoria> {
     
 }

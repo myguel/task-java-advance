@@ -7,6 +7,7 @@ package pe.edu.cibertec.audit.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,41 +17,50 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *
+ * 
  * @author jpadilla
  */
 @Entity
 @Table(name = "auditoria")
-public class Auditoria implements Serializable{
+public class Auditoria implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer auditoria_id;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fecha;
-    private String valor;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "auditoria_id")
+	private Integer auditoriaId;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date fecha;
+	private String valor;
 
-    public Integer getAuditoria_id() {
-        return auditoria_id;
-    }
+	public Auditoria() {
+		
+	}
 
-    public void setAuditoria_id(Integer auditoria_id) {
-        this.auditoria_id = auditoria_id;
-    }
+	public Integer getAuditoriaId() {
+		return auditoriaId;
+	}
 
-    public Date getFecha() {
-        return fecha;
-    }
+	public void setAuditoriaId(Integer auditoriaId) {
+		this.auditoriaId = auditoriaId;
+	}
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
+	public Date getFecha() {
+		return fecha;
+	}
 
-    public String getValor() {
-        return valor;
-    }
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 
-    public void setValor(String valor) {
-        this.valor = valor;
-    }
+	public String getValor() {
+		return valor;
+	}
+
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
 }

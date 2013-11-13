@@ -14,42 +14,36 @@ import pe.edu.cibertec.audit.domain.Auditoria;
 import pe.edu.cibertec.audit.service.AuditoriaService;
 
 /**
- *
+ * 
  * @author jpadilla
  */
-@Service("auditoriaService")
+@Service
 public class AuditoriaServiceImpl implements AuditoriaService {
 
-     @Autowired
-    AuditoriaDAO dao;
-	
+	@Autowired
+	private AuditoriaDAO auditoriaDAO;
+
 	public void save(Auditoria t) {
-		// TODO Auto-generated method stub
-//		 dao.insert(auditoria);
-                dao.save(t);
+		auditoriaDAO.save(t);
 	}
 
-	
 	public void update(Auditoria t) {
-		// TODO Auto-generated method stub
-		
+		auditoriaDAO.update(t);
+
 	}
 
-	
 	public Auditoria get(Auditoria t) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 	public List<Auditoria> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 	public void delete(Auditoria t) {
-		// TODO Auto-generated method stub
-		
+		auditoriaDAO.delete(t.getAuditoriaId());
+
 	}
 }

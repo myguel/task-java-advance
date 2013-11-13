@@ -25,22 +25,22 @@ import pe.edu.cibertec.core.domain.Laboratorio;
 public class AuditoriaInterceptor {
 
     @Autowired
-    private AuditoriaService service;
+    private AuditoriaService serviceAuditoriaService;
 
     public void beforeDeleteLaboratorioInterceptor(JoinPoint joinPoint) {
         Laboratorio laboratorio = (Laboratorio) joinPoint.getArgs()[0];
         Auditoria auditoria = new Auditoria();
         auditoria.setFecha(new Date());
         auditoria.setValor("Eliminado: " + laboratorio.toString());
-        service.save(auditoria);
+        serviceAuditoriaService.save(auditoria);
     }
 
-    @After("execution(* pe.edu.cibertec.core.dao.impl.LaboratorioDaoImpl.delete(pe.edu.cibertec.core.domain.Laboratorio)) && args(laboratorio)")
+    @After("execution(* pe.edu.cibertec.core.dao.impl.LaboratorioDAOImpl.delete(pe.edu.cibertec.core.domain.Laboratorio)) && args(laboratorio)")
     public void afterDeleteLaboratorioInterceptor(Laboratorio laboratorio) {
         Auditoria auditoria = new Auditoria();
         auditoria.setFecha(new Date());
         auditoria.setValor("Eliminado: " + laboratorio.toString());
-        service.save(auditoria);
+        serviceAuditoriaService.save(auditoria);
     }
 
     public void beforeSaveAutorInterceptor(JoinPoint joinPoint) {
@@ -48,14 +48,14 @@ public class AuditoriaInterceptor {
         Auditoria auditoria = new Auditoria();
         auditoria.setFecha(new Date());
         auditoria.setValor("Insertado: " + laboratorio.toString());
-        service.save(auditoria);
+        serviceAuditoriaService.save(auditoria);
     }
 
-    @After("execution(* pe.edu.cibertec.core.dao.impl.LaboratorioDaoImpl.save(pe.edu.cibertec.core.domain.Laboratorio)) && args(laboratorio)")
+    @After("execution(* pe.edu.cibertec.core.dao.impl.LaboratorioDAOImpl.save(pe.edu.cibertec.core.domain.Laboratorio)) && args(laboratorio)")
     public void afterSaveLaboratorioInterceptor(Laboratorio laboratorio) {
         Auditoria auditoria = new Auditoria();
         auditoria.setFecha(new Date());
         auditoria.setValor("Insertado: " + laboratorio.toString());
-        service.save(auditoria);
+        serviceAuditoriaService.save(auditoria);
     }
 }
