@@ -4,7 +4,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-import org.junit.Ignore;
+import junit.framework.Assert;
+
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,13 +23,12 @@ public class LaboratorioServiceTest extends AbstractJunitTest {
     @Autowired
     private LaboratorioService laboratorioService;
 
-    @Test
-    @Ignore
+    @Test    
     public void getAll() {
         List<Laboratorio> laboratorios = laboratorioService.getAll();
-//		Assert.assertEquals(laboratorios.size(), 3);
+		Assert.assertTrue(laboratorios.size()>0);
         for (Laboratorio laboratorio : laboratorios) {
-            logger.info("Data: " + laboratorio.getNombre());
+            logger.info("## DATA: " + laboratorio.getNombre());
         }
     }
     
@@ -39,7 +39,7 @@ public class LaboratorioServiceTest extends AbstractJunitTest {
     	laboratorio.setDuracion(4);
     	laboratorio.setEstado(true);
     	laboratorio.setFecha(new Date());
-    	laboratorio.setNombre("LPII");
+    	laboratorio.setNombre("LPIII");
     	laboratorio.setPrecio(new BigDecimal(451.5));
     	laboratorio.setProfesor(new Profesor(1));
     	laboratorio.setPrograma(new Programa(1));

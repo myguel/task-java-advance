@@ -4,17 +4,18 @@
  */
 package pe.edu.cibertec.audit.interceptor;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import pe.edu.cibertec.audit.domain.Auditoria;
 import pe.edu.cibertec.audit.service.AuditoriaService;
-import pe.edu.cibertec.core.domain.Laboratorio;
 
 /**
  *
@@ -23,39 +24,22 @@ import pe.edu.cibertec.core.domain.Laboratorio;
 @Aspect
 @Component("auditoriaInterceptor")
 public class AuditoriaInterceptor {
+	private static final Logger logger=LoggerFactory.getLogger(AuditoriaInterceptor.class);
+			
 
     @Autowired
-    private AuditoriaService serviceAuditoriaService;
+    private AuditoriaService auditoriaService;
 
-    public void beforeDeleteLaboratorioInterceptor(JoinPoint joinPoint) {
-        Laboratorio laboratorio = (Laboratorio) joinPoint.getArgs()[0];
-        Auditoria auditoria = new Auditoria();
-        auditoria.setFecha(new Date());
-        auditoria.setValor("Eliminado: " + laboratorio.toString());
-        serviceAuditoriaService.save(auditoria);
-    }
-
-    @After("execution(* pe.edu.cibertec.core.dao.impl.LaboratorioDAOImpl.delete(pe.edu.cibertec.core.domain.Laboratorio)) && args(laboratorio)")
-    public void afterDeleteLaboratorioInterceptor(Laboratorio laboratorio) {
-        Auditoria auditoria = new Auditoria();
-        auditoria.setFecha(new Date());
-        auditoria.setValor("Eliminado: " + laboratorio.toString());
-        serviceAuditoriaService.save(auditoria);
-    }
-
-    public void beforeSaveAutorInterceptor(JoinPoint joinPoint) {
-        Laboratorio laboratorio = (Laboratorio) joinPoint.getArgs()[0];
-        Auditoria auditoria = new Auditoria();
-        auditoria.setFecha(new Date());
-        auditoria.setValor("Insertado: " + laboratorio.toString());
-        serviceAuditoriaService.save(auditoria);
-    }
-
-    @After("execution(* pe.edu.cibertec.core.dao.impl.LaboratorioDAOImpl.save(pe.edu.cibertec.core.domain.Laboratorio)) && args(laboratorio)")
-    public void afterSaveLaboratorioInterceptor(Laboratorio laboratorio) {
-        Auditoria auditoria = new Auditoria();
-        auditoria.setFecha(new Date());
-        auditoria.setValor("Insertado: " + laboratorio.toString());
-        serviceAuditoriaService.save(auditoria);
+    
+    @AfterReturning("execution(* pe.edu.cibertec.core.service.impl.*.*(..))")
+    public void save(JoinPoint joinPoint){
+    	String name = joinPoint.getSignature().toShortString();
+    	logger.info(name);
+    	Object object = joinPoint.getArgs()[0];
+    	logger.info(object.toString());
+    	Auditoria auditoria=new Auditoria();
+    	auditoria.setFecha(Calendar.getInstance().getTime());
+    	auditoria.setValor(object.toString());
+    	auditoriaService.save(auditoria);;
     }
 }

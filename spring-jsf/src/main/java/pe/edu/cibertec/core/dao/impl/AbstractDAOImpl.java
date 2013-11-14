@@ -78,8 +78,9 @@ public  abstract class AbstractDAOImpl<T extends Serializable>  implements Gener
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> getAll() {
-		logger.info("AbstractDAOImpl: getAll");
-		Query query = em.createQuery("from " + type.getName()); 
+		 logger.info("AbstractDAOImpl: getAll");
+		  String entity = type.getSimpleName();
+		  Query query = em.createQuery("select ent from " + entity + " ent"); 
     	return query.getResultList();
 	}
 }

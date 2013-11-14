@@ -2,6 +2,7 @@ package pe.edu.cibertec.core.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -15,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import pe.edu.cibertec.common.Constantes;
 /**
  * 
  * @author mliberato
@@ -110,5 +113,29 @@ public class Laboratorio implements Serializable{
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
+	@Override
+	public String toString() {
+		SimpleDateFormat dateFormat=new SimpleDateFormat(Constantes.DATE_FORMAT);
+		StringBuilder builder = new StringBuilder();
+		builder.append("Laboratorio [laboratorioId=");
+		builder.append(laboratorioId);
+		builder.append(", nombre=");
+		builder.append(nombre);
+		builder.append(", programa=");
+		builder.append(programa.getProgramaId());
+		builder.append(", profesor=");
+		builder.append(profesor.getProfesorId());
+		builder.append(", duracion=");
+		builder.append(duracion);
+		builder.append(", fecha=");
+		builder.append(dateFormat.format(fecha));
+		builder.append(", precio=");
+		builder.append(precio);
+		builder.append(", estado=");
+		builder.append(estado);
+		builder.append("]");
+		return builder.toString();
+	}
+	
 	
 }

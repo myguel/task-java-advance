@@ -8,25 +8,25 @@
 	
 	
 	<aop:aspectj-autoproxy />
-	<aop:config>
+<!-- 	<aop:config> -->
         
-        <aop:aspect id="aspectoAuditoria" ref="auditoriaInterceptor" >
-            <!-- @Before -->
-            <aop:pointcut id="beforeDeleteLaboratorioPointCut" expression="execution(* pe.edu.cibertec.core.service.impl.LaboratorioServiceImpl.delete(..))"/>
-            <aop:before method="beforeDeleteLaboratorioInterceptor" pointcut-ref="beforeDeleteLaboratorioPointCut" />
+<!--         <aop:aspect id="aspectoAuditoria" ref="auditoriaInterceptor" > -->
+<!--             @Before -->
+<!--             <aop:pointcut id="beforeDeleteLaboratorioPointCut" expression="execution(* pe.edu.cibertec.core.service.impl.LaboratorioServiceImpl.delete(..))"/> -->
+<!--             <aop:before method="beforeDeleteLaboratorioInterceptor" pointcut-ref="beforeDeleteLaboratorioPointCut" /> -->
             
-            <aop:pointcut id="beforeSaveLaboratorioPointCut" expression="execution(* pe.edu.cibertec.core.service.impl.LaboratorioServiceImpl.save(..))"/>
-            <aop:before method="beforeSaveLaboratorioInterceptor" pointcut-ref="beforeSaveLaboratorioPointCut" />
+<!--             <aop:pointcut id="beforeSaveLaboratorioPointCut" expression="execution(* pe.edu.cibertec.core.service.impl.LaboratorioServiceImpl.save(..))"/> -->
+<!--             <aop:before method="beforeSaveLaboratorioInterceptor" pointcut-ref="beforeSaveLaboratorioPointCut" /> -->
             
-            <!-- @After --> 
-            <aop:pointcut id="afterDeleteLaboratorioPointCut" expression="execution(* pe.edu.cibertec.core.service.impl.LaboratorioServiceImpl.delete(..))"/>
-            <aop:before method="afterDeleteLaboratorioInterceptor" pointcut-ref="afterDeleteLaboratorioPointCut" />
+<!--             @After  -->
+<!--             <aop:pointcut id="afterDeleteLaboratorioPointCut" expression="execution(* pe.edu.cibertec.core.service.impl.LaboratorioServiceImpl.delete(..))"/> -->
+<!--             <aop:before method="afterDeleteLaboratorioInterceptor" pointcut-ref="afterDeleteLaboratorioPointCut" /> -->
             
-            <aop:pointcut id="afterSaveLaboratorioPointCut" expression="execution(* pe.edu.cibertec.core.service.impl.LaboratorioServiceImpl.save(..))"/>
-            <aop:before method="afterSaveLaboratorioInterceptor" pointcut-ref="afterSaveLaboratorioPointCut" />
-        </aop:aspect>
+<!--             <aop:pointcut id="afterSaveLaboratorioPointCut" expression="execution(* pe.edu.cibertec.core.service.impl.LaboratorioServiceImpl.save(..))"/> -->
+<!--             <aop:before method="afterSaveLaboratorioInterceptor" pointcut-ref="afterSaveLaboratorioPointCut" /> -->
+<!--         </aop:aspect> -->
        
-    </aop:config>
+<!--     </aop:config> -->
 	
 
 </beans>
