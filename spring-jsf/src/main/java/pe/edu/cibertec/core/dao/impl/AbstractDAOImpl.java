@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import pe.edu.cibertec.core.dao.GenericDAO;
 
-public  abstract class AbstractDAOImpl<T extends Serializable>  implements GenericDAO<T>{
+public class AbstractDAOImpl<T extends Serializable>  implements GenericDAO<T>{
 
 	private static final Logger logger=LoggerFactory.getLogger(AbstractDAOImpl.class);
 
@@ -23,14 +23,10 @@ public  abstract class AbstractDAOImpl<T extends Serializable>  implements Gener
 	@SuppressWarnings("unchecked")
 	public AbstractDAOImpl() {
         Type t = getClass().getGenericSuperclass();
-        
-        logger.info(t.toString());
         ParameterizedType pt = (ParameterizedType) t;
-        logger.info(pt.toString());
-        System.out.println(pt.getActualTypeArguments()[0]);
-        logger.info(pt.getActualTypeArguments()[0].toString());
-        logger.info(pt.getClass().toString());
         type = (Class<T>) pt.getActualTypeArguments()[0];
+        logger.info(pt.getClass().toString());
+       
     }
 	public AbstractDAOImpl(Class<T> t){
 		this.type=t;
@@ -79,7 +75,7 @@ public  abstract class AbstractDAOImpl<T extends Serializable>  implements Gener
 	@Override
 	public List<T> getAll() {
 		 logger.info("AbstractDAOImpl: getAll");
-		  String entity = type.getSimpleName();
+		  String entity = type.getName();
 		  Query query = em.createQuery("select ent from " + entity + " ent"); 
     	return query.getResultList();
 	}

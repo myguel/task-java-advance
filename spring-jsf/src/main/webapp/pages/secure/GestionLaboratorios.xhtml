@@ -7,80 +7,115 @@
 
 	<ui:define name="title"> #{msg['laboratorio.titulo']} </ui:define>
 	<ui:define name="nameForm"> #{msg['laboratorio.titulo']} </ui:define>
-	<ui:define name="content" >
-		<p:growl id="growl" showDetail="true" sticky="false" life="4500" globalOnly="true" />
+	<ui:define name="content">
+		<p:growl id="growl" showDetail="true" sticky="false" life="4500"
+			globalOnly="true" />
 
 		<h:form id="formBusqueda" styleClass="ui-widget" prependId="false">
 			<div id="sub-header">
 				<div id="nameForm">#{msg['laboratorio.titulo']}</div>
 				<div id="toolBar">
 					<p:commandLink ajax="true" styleClass="butonSmall" id="buscar"
-						action="#{laboratorioController.buscarLaboratorios}" update="plgDtMotivo">
+						action="#{laboratorioController.buscarLaboratorios}"
+						update="plgDtMotivo">
 						<h:graphicImage library="images" name="buscar.png"
 							styleClass="toolbar-icon" alt="Buscar" title="Buscar" />
 					</p:commandLink>
 					<p:spacer width="10" />
-					<p:commandLink ajax="true" styleClass="butonSmall" process="@this" id="limpiar"
-						action="#{laboratorioController.limpiarLaboratorios}" update="plgFiltro">
+					<p:commandLink ajax="true" styleClass="butonSmall" process="@this"
+						id="limpiar" action="#{laboratorioController.limpiarLaboratorios}"
+						update="plgFiltro">
 						<h:graphicImage library="images" name="limpiar.png"
 							styleClass="toolbar-icon" alt="Limpiar" title="Limpiar" />
 					</p:commandLink>
 					<p:spacer width="10" />
-					<p:commandLink ajax="true" styleClass="butonSmall" id="nuevo" 
+					<p:commandLink ajax="true" styleClass="butonSmall" id="nuevo"
 						action="#{laboratorioController.nuevoLaboratorio}"
-						oncomplete="wvDlgMotivoNuevo.show(); limpiarFormularioSoloInput('panelNuevaCita')">
+						oncomplete="wvDlgLboratorioNuevo.show();">
 						<h:graphicImage library="images" name="nuevo.png"
 							styleClass="toolbar-icon" alt="Nuevo" title="Nuevo" />
 					</p:commandLink>
-					<p:defaultCommand target="buscar" /> 
+					<p:defaultCommand target="buscar" />
 				</div>
 			</div>
 			<div id="content" style="min-height: 358px;">
 				<div class="panel-filtro">
 					<h:panelGroup id="plgFiltro">
 						<p:panelGrid columns="4">
-							<h:outputLabel styleClass="label-general"  value="#{msg['laboratorio.filtro.nombre']}"/>
+							<h:outputLabel styleClass="label-general"
+								value="#{msg['laboratorio.filtro.nombre']}" />
 							<p:inputText styleClass="input-general" maxlength="50"
 								value="#{laboratorioController.laboratorio.nombre}" />
-								
-							<h:outputLabel styleClass="label-general" value="#{msg['laboratorio.filtro.estado']}"/>
+
+							<h:outputLabel styleClass="label-general"
+								value="#{msg['laboratorio.filtro.estado']}" />
 							<p:selectOneMenu styleClass="select-general"
 								value="#{laboratorioController.laboratorio.estado}">
-								<f:selectItem itemLabel="Seleccione" itemValue="-" />
+								<f:selectItem itemLabel="Seleccione" itemValue="-1" />
 								<f:selectItem itemLabel="Activo" itemValue="A" />
 								<f:selectItem itemLabel="Inactivo" itemValue="I" />
 							</p:selectOneMenu>
-							
-						</p:panelGrid>						
+
+						</p:panelGrid>
 					</h:panelGroup>
-				</div>				
-				<p:spacer height="25" />				
+				</div>
+				<p:spacer height="25" />
 				<h:panelGroup id="plgDtMotivo">
-					<p:dataTable id="dtMotivoCita" var="lab"
+					<p:dataTable id="dtLaborarios" var="lab"
 						value="#{laboratorioController.laboratorios}"
-						rowKey="#{lab.laboratorioId}"
+						rowKey="#{lab.laboratorioId}" rowIndexVar="rowIndex"
 						emptyMessage="No se encontraron Laboratorios con el filtro deseado"
-						paginator="true" rows="10"
-						paginatorPosition="top"
+						paginator="true" rows="10" paginatorPosition="top"
 						paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-						currentPageReportTemplate="{currentPage} de {totalPages}" >
+						currentPageReportTemplate="{currentPage} de {totalPages}">
+
+						<p:column headerText="#{msg['laboratorio.resultados.column0']}">
+       							 #{rowIndex+1}
+   				 			</p:column>
 
 						<p:column sortBy="#{lab.nombre}" id="colMotivo"
-							headerText="#{msg['laboratorio.resultados.column1']}" >
+							headerText="#{msg['laboratorio.resultados.column1']}">
+							<h:outputText value="#{lab.programa.nombre}" />
+						</p:column>
+
+						<p:column headerText="#{msg['laboratorio.resultados.column2']}"
+							style="text-align: center;">
+							<h:outputText
+								value="#{lab.profesor.nombre}  #{lab.profesor.apellido}" />
+						</p:column>
+
+						<p:column headerText="#{msg['laboratorio.resultados.column3']}"
+							style="text-align: center;">
 							<h:outputText value="#{lab.nombre}" />
 						</p:column>
 
-						<p:column id="colEstado" headerText="Duracion"
-							style="text-align: center;" >
-							<h:outputText value="#{msg['laboratorio.resultados.column2']}" />
+						<p:column headerText="#{msg['laboratorio.resultados.column4']}"
+							style="text-align: center;">
+							<h:outputText value="#{lab.precio}" />
+						</p:column>
+
+						<p:column headerText="#{msg['laboratorio.resultados.column5']}"
+							style="text-align: center;">
+							<h:outputText value="#{lab.duracion}" />
+						</p:column>
+
+						<p:column headerText="#{msg['laboratorio.resultados.column6']}"
+							style="text-align: center;">
+							<h:outputText value="#{lab.fecha}">
+								<f:convertDateTime pattern="#{msg['laboratorio.formato.fecha']}" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="#{msg['laboratorio.resultados.column7']}">
+							<p:selectBooleanCheckbox value="#{lab.estado}" />
 						</p:column>
 
 						<p:column styleClass="boton-data-table-centrado">
 							<f:facet name="header">
-								<h:outputText value="#{msg['laboratorio.resultados.column3']}" />
+								<h:outputText value="#{msg['laboratorio.resultados.column8']}" />
 							</f:facet>
 							<p:commandLink id="cmlLaboratorioEditar"
-								oncomplete="wvDlgMotivoEditar.show();" 
+								oncomplete="wvDlgMotivoEditar.show();"
 								process=":formBusqueda:plgDtMotivo">
 								<h:graphicImage library="images" name="editar.png"
 									styleClass="icon-small" alt="Editar" title="Editar" />
@@ -91,20 +126,23 @@
 
 						<p:column styleClass="boton-data-table-centrado">
 							<f:facet name="header">
-								<h:outputText value="#{msg['laboratorio.resultados.column4']}" />
+								<h:outputText value="#{msg['laboratorio.resultados.column9']}" />
 							</f:facet>
 							<p:commandLink id="cmlLaboratorioEliminar" immediate="true"
 								oncomplete="wvDlgMotivoEliminar.show();">
 								<h:graphicImage library="images" name="eliminar.png"
-									styleClass="icon-small"  alt="Eliminar" title="Eliminar" />
+									styleClass="icon-small" alt="Eliminar" title="Eliminar" />
 								<f:setPropertyActionListener value="#{mot}"
 									target="#{laboratorioController.eliminarLaboratorios}" />
 							</p:commandLink>
 						</p:column>
 					</p:dataTable>
-				</h:panelGroup>				
+				</h:panelGroup>
 			</div>
 		</h:form>
+
+		<ui:include src="/pages/secure/NuevoLaboratorio.xhtml" />
+
 
 	</ui:define>
 </ui:composition>

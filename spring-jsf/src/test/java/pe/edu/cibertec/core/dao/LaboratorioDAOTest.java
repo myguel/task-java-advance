@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,21 +15,26 @@ import pe.edu.cibertec.common.AbstractJunitTest;
 import pe.edu.cibertec.core.domain.Laboratorio;
 import pe.edu.cibertec.core.domain.Profesor;
 import pe.edu.cibertec.core.domain.Programa;
+import pe.edu.cibertec.core.service.LaboratorioService;
 
 public class LaboratorioDAOTest extends AbstractJunitTest {
 
     private static final Logger logger = LoggerFactory.getLogger(LaboratorioDAOTest.class);
     @Autowired
     private LaboratorioDAO laboratorioDAO;
+    
+    @Autowired
+    private LaboratorioService laboratorioService;
 
     @Test    
     public void getAll() {
-        List<Laboratorio> laboratorios = laboratorioDAO.getAll();
+        List<Laboratorio> laboratorios = laboratorioService.getAll();
 //		Assert.assertEquals(laboratorios.size(), 3);
         for (Laboratorio laboratorio : laboratorios) {
-            logger.info("Data: " + laboratorio.getNombre());
+            System.out.println("Data: " + laboratorio.getNombre());
         }
     }
+    @Ignore
     @Test
     @Rollback(false)
     public void save(){

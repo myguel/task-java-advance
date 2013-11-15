@@ -1,6 +1,7 @@
 package pe.edu.cibertec.core.service.impl;
 
 import java.util.List;
+import java.util.jar.Attributes.Name;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pe.edu.cibertec.core.dao.LaboratorioDAO;
 import pe.edu.cibertec.core.domain.Laboratorio;
 import pe.edu.cibertec.core.service.LaboratorioService;
-@Service
+@Service("laboratorioService")
 @Transactional
 public class LaboratorioServiceImpl implements LaboratorioService {
 

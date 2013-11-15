@@ -34,7 +34,7 @@ public class Laboratorio implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="laboratorio_id")
-	@GeneratedValue	(strategy=GenerationType.IDENTITY)
+	@GeneratedValue	(strategy=GenerationType.SEQUENCE)
 	private Long laboratorioId;
 	@Column(name="nombre")
 	private String nombre;	
@@ -55,6 +55,8 @@ public class Laboratorio implements Serializable{
 	private Boolean estado;
 	
 	public Laboratorio() {
+		this.programa = new Programa();
+		this.profesor = new Profesor();
 	}
 	public Laboratorio(Long id) {
 		this.laboratorioId=id;

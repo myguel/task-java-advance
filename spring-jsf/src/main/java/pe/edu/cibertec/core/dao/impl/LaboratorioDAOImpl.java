@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import pe.edu.cibertec.core.dao.LaboratorioDAO;
 import pe.edu.cibertec.core.domain.Laboratorio;
 
-@Repository
+@Repository("laboratorioDAO")
 public class LaboratorioDAOImpl extends AbstractDAOImpl<Laboratorio> implements LaboratorioDAO {
 	private static final Logger logger=LoggerFactory.getLogger(LaboratorioDAOImpl.class);
 	

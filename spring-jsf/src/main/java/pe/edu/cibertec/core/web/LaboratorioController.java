@@ -1,39 +1,37 @@
 package pe.edu.cibertec.core.web;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
 
 import pe.edu.cibertec.core.domain.Laboratorio;
+import pe.edu.cibertec.core.service.LaboratorioService;
 
-@ManagedBean(name="laboratorioController")
-@RequestScoped
-public class LaboratorioController {
-
+@ManagedBean(name = "laboratorioController")
+@ViewScoped
+public class LaboratorioController implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	
+	@ManagedProperty (value = "#{laboratorioService}")
+	LaboratorioService laboratorioService;
 	Laboratorio laboratorio;
 
 	List<Laboratorio> laboratorios;
 
 	public LaboratorioController() {
-
-	}
-
-	@PostConstruct
-	public void inicio() {
-		listarLaboratorios(laboratorios);
-	}
-	
-
-	private void listarLaboratorios(List<Laboratorio> laboratorios2) {
-		laboratorios = new ArrayList<Laboratorio>();
-		laboratorios.add(new Laboratorio("laboratorio", 10));
 		
 	}
 
+	@PostConstruct
+	void inicio() {
+		laboratorio = new Laboratorio();
+		laboratorios = laboratorioService.getAll();
+	}
+	
 	public void buscarLaboratorios() {
 
 	}
@@ -54,6 +52,22 @@ public class LaboratorioController {
 
 	}
 
+	public List<Laboratorio> getLaboratorios() {
+		return laboratorios;
+	}
+
+	public void setLaboratorios(List<Laboratorio> laboratorios) {
+		this.laboratorios = laboratorios;
+	}
+
+	public LaboratorioService getLaboratorioService() {
+		return laboratorioService;
+	}
+
+	public void setLaboratorioService(LaboratorioService laboratorioService) {
+		this.laboratorioService = laboratorioService;
+	}
+
 	public Laboratorio getLaboratorio() {
 		return laboratorio;
 	}
@@ -62,11 +76,4 @@ public class LaboratorioController {
 		this.laboratorio = laboratorio;
 	}
 
-	public List<Laboratorio> getLaboratorios() {
-		return laboratorios;
-	}
-
-	public void setLaboratorios(List<Laboratorio> laboratorios) {
-		this.laboratorios = laboratorios;
-	}
 }

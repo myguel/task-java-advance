@@ -31,7 +31,7 @@ public class AuditoriaInterceptor {
     private AuditoriaService auditoriaService;
 
     
-    @AfterReturning("execution(* pe.edu.cibertec.core.service.impl.*.*(..))")
+    @AfterReturning("execution(* pe.edu.cibertec.core.service.impl.*.save(..))")
     public void save(JoinPoint joinPoint){
     	String name = joinPoint.getSignature().toShortString();
     	logger.info(name);
