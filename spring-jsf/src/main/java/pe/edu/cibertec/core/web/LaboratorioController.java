@@ -51,6 +51,14 @@ public class LaboratorioController implements Serializable {
 	public void nuevoLaboratorio() {
 
 	}
+	
+	public void guardarLaboratorio() {
+
+	}
+	
+	public void actualizarLaboratorio() {
+
+	}
 
 	public List<Laboratorio> getLaboratorios() {
 		return laboratorios;
