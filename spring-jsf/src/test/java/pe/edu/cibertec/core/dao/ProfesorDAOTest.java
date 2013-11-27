@@ -1,5 +1,8 @@
 package pe.edu.cibertec.core.dao;
 
+import java.util.List;
+
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
@@ -10,6 +13,7 @@ import pe.edu.cibertec.core.domain.Profesor;
 public class ProfesorDAOTest  extends AbstractJunitTest{
 	@Autowired
 	private ProfesorDAO profesorDAO;
+	@Ignore
 	@Test
 	@Rollback(false)
 	public void save(){
@@ -24,4 +28,13 @@ public class ProfesorDAOTest  extends AbstractJunitTest{
 		profesorDAO.save(t);
 	}
 
+	 @Test
+	public void getProfesor(){
+		List<Profesor>list=profesorDAO.getProfesors();
+		for (Profesor profesor : list) {
+			System.out.println(profesor.getNombre());
+			System.out.println(profesor.getProfesorId());
+			
+		}
+	}
 }

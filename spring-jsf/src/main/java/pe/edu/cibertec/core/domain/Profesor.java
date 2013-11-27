@@ -50,6 +50,15 @@ public class Profesor implements Serializable {
 
 	}
 
+	
+	
+	public Profesor(Integer profesorId, String apellido,String nombre) {		
+		this.profesorId = profesorId;
+		this.nombre= apellido.concat(" ").concat(nombre);
+	}
+
+
+
 	public Profesor(Integer id) {
 		this.profesorId=id;
 	}

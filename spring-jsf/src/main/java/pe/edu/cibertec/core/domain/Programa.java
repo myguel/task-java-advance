@@ -37,6 +37,15 @@ public class Programa implements Serializable {
 
 	}
 
+	
+	
+	public Programa(Integer programaId, String nombre) {
+		this.programaId = programaId;
+		this.nombre = nombre;
+	}
+
+
+
 	public Programa(Integer id) {
 		this.programaId=id;
 	}

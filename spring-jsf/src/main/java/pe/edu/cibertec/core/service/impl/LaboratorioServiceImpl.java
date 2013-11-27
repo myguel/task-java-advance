@@ -10,7 +10,11 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import pe.edu.cibertec.core.dao.LaboratorioDAO;
+import pe.edu.cibertec.core.dao.ProfesorDAO;
+import pe.edu.cibertec.core.dao.ProgramaDAO;
 import pe.edu.cibertec.core.domain.Laboratorio;
+import pe.edu.cibertec.core.domain.Profesor;
+import pe.edu.cibertec.core.domain.Programa;
 import pe.edu.cibertec.core.service.LaboratorioService;
 import pe.edu.cibertec.exception.BusinessException;
 @Service
@@ -21,6 +25,10 @@ public class LaboratorioServiceImpl implements LaboratorioService {
 	
 	@Autowired
 	private LaboratorioDAO laboratorioDAO;
+	@Autowired
+	private ProfesorDAO profesorDAO;
+	@Autowired
+	private ProgramaDAO programaDAO;
 	/**
 	 * {@inheritDoc}
 	 */
@@ -65,6 +73,28 @@ public class LaboratorioServiceImpl implements LaboratorioService {
 			laboratorioDAO.delete(laboratorio);
 		}else{			
 			throw new BusinessException(BusinessException.SEVERITY_NORMAL, "Selecione bien el registro a dar de baja.");
+		}
+		
+	}
+	
+	@Override
+	public List<Profesor> getProfesors()throws BusinessException {
+		List<Profesor> profesors=profesorDAO.getProfesors();
+		if(profesors.size()>0){
+			return profesors;
+		}else{
+			throw new BusinessException(BusinessException.SEVERITY_LOW, "No existe Profesores Registrados");
+		}
+		 
+	}
+	
+	@Override
+	public List<Programa> getProgramas() throws BusinessException{
+		List<Programa> programas = programaDAO.getProgramas();
+		if(programas.size()>0){
+			return programas;
+		}else{
+			throw new BusinessException(BusinessException.SEVERITY_LOW, "No existe Programas Registrados");
 		}
 		
 	}
