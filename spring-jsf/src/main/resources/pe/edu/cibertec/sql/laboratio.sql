@@ -1,10 +1,14 @@
+
+
+DROP TABLE IF EXISTS usuario_rol;
 DROP TABLE IF EXISTS usuario;
 CREATE TABLE usuario(
 usuario_id integer NOT NULL AUTO_INCREMENT, 
 nombre varchar(100) not null,
 usuario_login varchar(50) not null,
 usuario_password varchar(100) not null,
-constraint pk_usuario primary key(usuario_id)
+estado boolean default true,
+constraint pk_usuario_ primary key(usuario_id)
 );
 
 CREATE TABLE usuario_rol (
@@ -57,21 +61,21 @@ DROP TABLE IF EXISTS auditoria;
 CREATE TABLE auditoria(
 auditoria_id integer NOT NULL AUTO_INCREMENT, 
 fecha date not null,
-valor varchar(50) not null,
+valor TEXT not null,
 CONSTRAINT PRIMARY KEY (auditoria_id)
 );
 
 
-insert into usuario(usuario_id,nombre,usuario_login,usuario_password,estado) values (1,'MIGUEL LIBERATO','myguel','myguel123',1);
-insert into usuario(usuario_id,nombre,usuario_login,usuario_password,estado) values (2,'ROCIO MANYA','rocio','rocio123',1);
-insert into usuario(usuario_id,nombre,usuario_login,usuario_password,estado) values (3,'Willam Yamunaque','willy','willy123',1);
-insert into usuario(usuario_id,nombre,usuario_login,usuario_password,estado) values (4,'Juan Padilla','juan','juan123',1);
+insert into usuario(nombre,usuario_login,usuario_password,estado) values ('MIGUEL LIBERATO','myguel','myguel123',TRUE);
+insert into usuario(nombre,usuario_login,usuario_password,estado) values ('ROCIO MANYA','rocio','rocio123',TRUE);
+insert into usuario(nombre,usuario_login,usuario_password,estado) values ('Willam Yamunaque','willy','willy123',TRUE);
+insert into usuario(nombre,usuario_login,usuario_password,estado) values ('Juan Padilla','juan','juan123',TRUE);
 
 
 
-insert into usuario_rol(usuario_rol_id,usuario_id,permiso) values (1,1,'ROL_ADMINISTRADOR');
-insert into usuario_rol(usuario_rol_id,usuario_id,permiso) values (2,2,'ROL_DIRECTOR');
-insert into usuario_rol(usuario_rol_id,usuario_id,permiso) values (3,3,'ROL_INVITADO');
-insert into usuario_rol(usuario_rol_id,usuario_id,permiso) values (4,4,'ROL_USER');
+insert into usuario_rol(usuario_id,permiso) values (1,'ROL_ADMINISTRADOR');
+insert into usuario_rol(usuario_id,permiso) values (2,'ROL_DIRECTOR');
+insert into usuario_rol(usuario_id,permiso) values (3,'ROL_INVITADO');
+insert into usuario_rol(usuario_id,permiso) values (4,'ROL_USER');
 
 

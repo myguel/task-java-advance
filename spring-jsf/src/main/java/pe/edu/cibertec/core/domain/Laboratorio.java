@@ -119,25 +119,53 @@ public class Laboratorio implements Serializable{
 	public String toString() {
 		SimpleDateFormat dateFormat=new SimpleDateFormat(Constantes.DATE_FORMAT);
 		StringBuilder builder = new StringBuilder();
-		builder.append("Laboratorio [laboratorioId=");
-		builder.append(laboratorioId);
-		builder.append(", nombre=");
-		builder.append(nombre);
-		builder.append(", programa=");
-		builder.append(programa.getProgramaId());
-		builder.append(", profesor=");
-		builder.append(profesor.getProfesorId());
-		builder.append(", duracion=");
-		builder.append(duracion);
-		builder.append(", fecha=");
-		builder.append(dateFormat.format(fecha));
-		builder.append(", precio=");
-		builder.append(precio);
-		builder.append(", estado=");
-		builder.append(estado);
+		builder.append("Laboratorio [");
+		if (laboratorioId != null) {
+			builder.append("laboratorioId=");
+			builder.append(laboratorioId);
+			builder.append(", ");
+		}
+		if (nombre != null) {
+			builder.append("nombre=");
+			builder.append(nombre);
+			builder.append(", ");
+		}
+		if (programa != null) {
+			builder.append("programa=");
+			builder.append(programa.getProgramaId());
+			builder.append(", ");
+		}
+		if (profesor != null) {
+			builder.append("profesor=");
+			builder.append(profesor.getProfesorId());
+			builder.append(", ");
+		}
+		if (duracion != null) {
+			builder.append("duracion=");
+			builder.append(duracion);
+			builder.append(", ");
+		}
+		if (fecha != null) {
+			builder.append("fecha=");
+			builder.append(dateFormat.format(fecha));
+			builder.append(", ");
+		}
+		if (precio != null) {
+			builder.append("precio=");
+			builder.append(precio);
+			builder.append(", ");
+		}
+		if (estado != null) {
+			builder.append("estado=");
+			builder.append(estado);
+		}
 		builder.append("]");
 		return builder.toString();
 	}
+	
+	
+	
+
 	
 	
 }

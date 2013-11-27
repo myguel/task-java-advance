@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="description" name="dbunitAnt">
+	<property name="srcxml" location="${basedir}/dataset"/>	
+	<loadproperties srcFile="${basedir}/src/test/resources/pe/edu/cibertec/datasource-test.properties"/>
+	<target name="description">
+		<echo message="dbunitAnt build xml to test"></echo>
+	</target>	
+	<target name="export">
+		<echo message="export from ${jdbc.url}"></echo>
+		<dbunit driver="${jdbc.driverClass}" 
+			url="${jdbc.url}?autoReconnect=true&amp;sessionVariables=FOREIGN_KEY_CHECKS=0" 
+			userid="${jdbc.username}" 
+			password="${jdbc.password}">			
+			
+			<export dest="${srcxml}/profesor.xml"><table name="profesor"/></export>
+			<export dest="${srcxml}/programa.xml"><table name="programa"/></export>
+			<export dest="${srcxml}/laboratorio.xml"><table name="laboratorio"/></export>
+		</dbunit>
+	</target>
+	
+	<target name="insert">
+		<echo message="insert in ${jdbc.url}"></echo>
+		<dbunit driver="${jdbc.driverClass}"
+			url="${jdbc.url}?autoReconnect=true&amp;sessionVariables=FOREIGN_KEY_CHECKS=0" 
+			userid="${jdbc.username}" 
+			password="${jdbc.password}">
+
+			<operation type="CLEAN_INSERT" src="${srcxml}/profesor.xml"/>
+			<operation type="CLEAN_INSERT" src="${srcxml}/programa.xml"/>
+			<operation type="CLEAN_INSERT" src="${srcxml}/laboratorio.xml"/>
+	    </dbunit>
+    </target>
+</project>

@@ -32,11 +32,12 @@ public class AuditoriaServiceImpl implements AuditoriaService {
 
 	}
 
-	public Auditoria get(Auditoria t) {
+	@Override
+	public Auditoria getById(Auditoria t) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	@Override
 	public List<Auditoria> getAll() {
 		// TODO Auto-generated method stub
 		return null;

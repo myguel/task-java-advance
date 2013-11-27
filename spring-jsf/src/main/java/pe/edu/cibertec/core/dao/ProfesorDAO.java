@@ -1,5 +1,8 @@
 package pe.edu.cibertec.core.dao;
 
-public interface ProfesorDAO {
+import pe.edu.cibertec.core.domain.Profesor;
 
+public interface ProfesorDAO extends GenericDAO<Profesor> {
+
+	
 }

@@ -35,7 +35,7 @@ public class AbstractDAOImpl<T extends Serializable>  implements GenericDAO<T>{
 	
 	
 	@PersistenceContext
-    private EntityManager em;
+    protected EntityManager em;
 
 	@Override
 	public long count() {
