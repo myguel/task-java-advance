@@ -62,6 +62,19 @@ public class Laboratorio implements Serializable{
 		this.laboratorioId=id;
 	}
 	
+	
+	public Laboratorio(Long laboratorioId, String nombre, Programa programa,
+			Profesor profesor, Integer duracion, Date fecha, BigDecimal precio,
+			Boolean estado) {		
+		this.laboratorioId = laboratorioId;
+		this.nombre = nombre;
+		this.programa = programa;
+		this.profesor = profesor;
+		this.duracion = duracion;
+		this.fecha = fecha;
+		this.precio = precio;
+		this.estado = estado;
+	}
 	public Laboratorio(String nombre, Integer duracion) {
 		this.nombre = nombre;
 		this.duracion = duracion;

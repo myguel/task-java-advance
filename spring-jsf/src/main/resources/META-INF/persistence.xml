@@ -12,6 +12,9 @@
 		<class>pe.edu.cibertec.security.domain.Usuario</class>
 		<properties>
 			<property name="eclipselink.weaving" value="false" />
+			<!-- <property name="eclipselink.logging.level" value="FINE"/> -->
+			<property name="eclipselink.logging.parameters" value="true" />
+			<property name="eclipselink.logging.level.sql" value="FINE" />
 		</properties>
 	</persistence-unit>
 </persistence> 

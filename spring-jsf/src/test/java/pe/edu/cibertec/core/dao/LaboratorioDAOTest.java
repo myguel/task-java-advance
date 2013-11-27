@@ -28,9 +28,10 @@ public class LaboratorioDAOTest extends AbstractJunitTest {
     @Test    
     public void getAll() {
         List<Laboratorio> laboratorios = laboratorioService.getAll();
-//		Assert.assertEquals(laboratorios.size(), 3);
+		
         for (Laboratorio laboratorio : laboratorios) {
-            System.out.println("Data: " + laboratorio.getNombre());
+        logger.info("Data: " + laboratorio.getProfesor().getApellido());
+        logger.info("PROGR: " + laboratorio.getPrograma().getNombre());
         }
     }
     
@@ -45,7 +46,7 @@ public class LaboratorioDAOTest extends AbstractJunitTest {
     	laboratorio.setPrecio(new BigDecimal(451.5));
     	laboratorio.setProfesor(new Profesor(1));
     	laboratorio.setPrograma(new Programa(1));
-    	laboratorioDAO.save(laboratorio);
+    	laboratorioService.save(laboratorio);
     }
     
 }
