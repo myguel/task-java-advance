@@ -21,6 +21,9 @@ public class LaboratorioServiceImpl implements LaboratorioService {
 	
 	@Autowired
 	private LaboratorioDAO laboratorioDAO;
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	@Transactional(readOnly=false,propagation=Propagation.REQUIRED,rollbackFor=BusinessException.class)
 	public void save(Laboratorio laboratorio)  throws BusinessException{
