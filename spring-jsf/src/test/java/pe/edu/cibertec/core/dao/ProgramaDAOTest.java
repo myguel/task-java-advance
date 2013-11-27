@@ -16,18 +16,18 @@ public class ProgramaDAOTest extends AbstractJunitTest {
 	private ProgramaDAO programaDAO;
 
 	@Test
-	@Ignore
 	@Rollback(false)
 	public void save() {
 		Programa programa = new Programa();
 		programa.setEstado(true);
-		programa.setNombre("SWII");
+		programa.setNombre("JAVA WEB DEVELOPER");
 		programaDAO.save(programa);
 
 	}
 
+	
 	@Test
-	public void getProfesor() {
+	public void getProgramas() {
 		List<Programa> list = programaDAO.getProgramas();
 		for (Programa programa : list) {
 			System.out.println(programa.getNombre());

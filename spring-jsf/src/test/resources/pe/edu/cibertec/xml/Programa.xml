@@ -1,0 +1,17 @@
+<list>
+  <pe.edu.cibertec.core.domain.Programa>
+    <programaId>1</programaId>
+    <nombre>SWII</nombre>
+    <estado>true</estado>
+  </pe.edu.cibertec.core.domain.Programa>
+  <pe.edu.cibertec.core.domain.Programa>
+    <programaId>2</programaId>
+    <nombre>JAVA ADVANCE</nombre>
+    <estado>true</estado>
+  </pe.edu.cibertec.core.domain.Programa>
+  <pe.edu.cibertec.core.domain.Programa>
+    <programaId>3</programaId>
+    <nombre>JAVA WEB DEVELOPER</nombre>
+    <estado>true</estado>
+  </pe.edu.cibertec.core.domain.Programa>
+</list>
