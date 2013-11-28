@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import pe.edu.cibertec.core.dao.ProgramaDAO;
 import pe.edu.cibertec.core.domain.Programa;
 
-@Repository
+@Repository(value="programaDAO")
 public class ProgramaDAOImpl extends AbstractDAOImpl<Programa> implements ProgramaDAO{
 
 	@Override

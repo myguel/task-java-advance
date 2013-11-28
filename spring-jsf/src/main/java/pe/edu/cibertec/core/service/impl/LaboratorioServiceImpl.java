@@ -17,7 +17,7 @@ import pe.edu.cibertec.core.domain.Profesor;
 import pe.edu.cibertec.core.domain.Programa;
 import pe.edu.cibertec.core.service.LaboratorioService;
 import pe.edu.cibertec.exception.BusinessException;
-@Service
+@Service(value="laboratorioService")
 @Transactional
 public class LaboratorioServiceImpl implements LaboratorioService {
 

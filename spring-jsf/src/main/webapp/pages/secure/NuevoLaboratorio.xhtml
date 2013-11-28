@@ -7,12 +7,48 @@
 
 	<p:dialog header="#{msg['laboratorio.formulario.nuevo']}" modal="true"
 		showEffect="fade" closable="false" resizable="false" hideEffect="fade"
-		widgetVar="wvDlgLboratorioNuevo.show();">
+		widgetVar="wvDlgLboratorioNuevo">
 
-		<h:form id="frmFiltroCantFlota" styleClass="ui-widget"
+		<h:form id="frmNuevoLaboratorio" styleClass="ui-widget"
 			prependId="false">
 
-			<h:panelGrid>
+			<h:panelGrid columns="2" style="width:300px">
+				<h:outputLabel value="#{msg['laboratorio.formulario.programa']}" />
+
+				<p:selectOneMenu
+					value="#{laboratorioController.laboratorio.programa.programaId}">
+					<f:selectItem itemValue="-1" itemLabel="Seleccione" />
+					<f:selectItems itemLabel="#{programa.nombre}"
+						itemValue="#{programa.programaId}" var="programa"
+						value="#{laboratorioController.programas}">
+					</f:selectItems>
+				</p:selectOneMenu>
+
+				<h:outputLabel value="#{msg['laboratorio.formulario.profesor']}" />
+
+				<p:selectOneMenu value="#{laboratorioController.laboratorio.profesor.profesorId}">
+					<f:selectItem itemValue="-1" itemLabel="Seleccione" />
+					<f:selectItems itemLabel="#{profesor.nombre}"
+						itemValue="#{profesor.profesorId}" var="profesor"
+						value="#{laboratorioController.profesores}">
+					</f:selectItems>
+				</p:selectOneMenu>
+
+				<h:outputLabel value="#{msg['laboratorio.formulario.nombre']}" />
+				<h:inputText value="#{laboratorioController.laboratorio.nombre}" />
+
+				<h:outputLabel value="#{msg['laboratorio.formulario.duracion']}" />
+				<h:inputText value="#{laboratorioController.laboratorio.duracion}" />
+
+				<h:outputLabel value="#{msg['laboratorio.formulario.precio']}" />
+				<h:inputText value="#{laboratorioController.laboratorio.precio}" />
+
+				<h:outputLabel value="#{msg['laboratorio.formulario.fecha']}" />
+				<p:calendar value="#{laboratorioController.laboratorio.fecha}"
+					pattern="MM/dd/yyyy HH:mm" />
+
+				<!-- 				<h:outputLabel value="#{msg['laboratorio.formulario.estado']}" /> -->
+				<!-- 				<p:selectBooleanCheckbox value="#{laboratorioController.laboratorio.estado}" />   -->
 
 			</h:panelGrid>
 

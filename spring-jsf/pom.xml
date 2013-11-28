@@ -121,7 +121,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.version}</version>
+			<version>5.1.27</version>
 		</dependency>
 		<!-- junit -->
 		<dependency>
@@ -135,6 +135,13 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.6.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
@@ -244,7 +251,6 @@
 
 	<build>
 		<plugins>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -255,106 +261,9 @@
 					<encoding>${project.enconde}</encoding>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<warSourceDirectory>
-						src/main/webapp
-					</warSourceDirectory>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy-config-files</id>
-						<phase>compile</phase>
-						<configuration>
-							<tasks>
-								<echo message="Copying resources to project build output directory" />
-								<delete>
-									<fileset dir="${project.build.outputDirectory}">
-										<include name="**/*.properties" />
-										<include name="**/*.xml" />
-										<include name="**/*.vm" />
-									</fileset>
-								</delete>
-								<delete>
-									<fileset dir="${project.build.outputDirectory}">
-										<include name="**/ehcache*.jar" />
-									</fileset>
-								</delete>
-								<copy toDir="${project.build.outputDirectory}">
-									<fileset dir="${basedir}\src\main\java">
-										<include name="**/*.properties" />
-										<include name="**/*.xml" />
-										<include name="**/*.vm" />
-									</fileset>
-								</copy>
-							</tasks>
-						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>dbunit-maven-plugin</artifactId>
-				<version>1.0-beta-2</version>
-				<!--jar file that has the jdbc driver -->
-				<dependencies>
-					<dependency>
-						<groupId>mysql</groupId>
-						<artifactId>mysql-connector-java</artifactId>
-						<version>5.1.7</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-
-
 		</plugins>
 		<finalName>spring-jsf</finalName>
 	</build>
-
-
-	<profiles>
-		<profile>
-			<id>dbunitProcessDataSet</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>dbunitProcess</id>
-								<phase>clean</phase>
-								<configuration>
-									<tasks>
-										<taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask"
-											classpathref="maven.test.classpath" />
-										<ant antfile="dbunitAnt.xml" target="${dbunit.target}"
-											inheritAll="true" />
-									</tasks>
-								</configuration>
-								<goals>
-									<goal>run</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
-	</profiles>
-
 
 	<repositories>
 		<repository>

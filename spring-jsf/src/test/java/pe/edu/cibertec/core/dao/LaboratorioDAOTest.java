@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +37,7 @@ public class LaboratorioDAOTest extends AbstractJunitTest {
     }
     
     @Test
+    @Ignore
     @Rollback(false)
     public void save(){
     	Laboratorio laboratorio=new Laboratorio();

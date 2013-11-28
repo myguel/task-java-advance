@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import pe.edu.cibertec.core.dao.ProfesorDAO;
 import pe.edu.cibertec.core.domain.Profesor;
-@Repository
+@Repository(value="profesorDAO")
 public class ProfesorDAOImpl  extends AbstractDAOImpl<Profesor> implements ProfesorDAO {
 
 	@Override

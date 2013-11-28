@@ -17,7 +17,7 @@
 				<div id="toolBar">
 					<p:commandLink ajax="true" styleClass="butonSmall" id="buscar"
 						action="#{laboratorioController.buscarLaboratorios}"
-						update="plgDtMotivo">
+						update="plgDtLaboratorio">
 						<h:graphicImage library="images" name="buscar.png"
 							styleClass="toolbar-icon" alt="Buscar" title="Buscar" />
 					</p:commandLink>
@@ -60,7 +60,7 @@
 					</h:panelGroup>
 				</div>
 				<p:spacer height="25" />
-				<h:panelGroup id="plgDtMotivo">
+				<h:panelGroup id="plgDtLaboratorio">
 					<p:dataTable id="dtLaborarios" var="lab"
 						value="#{laboratorioController.laboratorios}"
 						rowKey="#{lab.laboratorioId}" rowIndexVar="rowIndex"
@@ -78,29 +78,24 @@
 							<h:outputText value="#{lab.programa.nombre}" />
 						</p:column>
 
-						<p:column headerText="#{msg['laboratorio.resultados.column2']}"
-							style="text-align: center;">
+						<p:column headerText="#{msg['laboratorio.resultados.column2']}">
 							<h:outputText
 								value="#{lab.profesor.nombre}  #{lab.profesor.apellido}" />
 						</p:column>
 
-						<p:column headerText="#{msg['laboratorio.resultados.column3']}"
-							style="text-align: center;">
+						<p:column headerText="#{msg['laboratorio.resultados.column3']}">
 							<h:outputText value="#{lab.nombre}" />
 						</p:column>
 
-						<p:column headerText="#{msg['laboratorio.resultados.column4']}"
-							style="text-align: center;">
+						<p:column headerText="#{msg['laboratorio.resultados.column4']}">
 							<h:outputText value="#{lab.precio}" />
 						</p:column>
 
-						<p:column headerText="#{msg['laboratorio.resultados.column5']}"
-							style="text-align: center;">
+						<p:column headerText="#{msg['laboratorio.resultados.column5']}">
 							<h:outputText value="#{lab.duracion}" />
 						</p:column>
 
-						<p:column headerText="#{msg['laboratorio.resultados.column6']}"
-							style="text-align: center;">
+						<p:column headerText="#{msg['laboratorio.resultados.column6']}">
 							<h:outputText value="#{lab.fecha}">
 								<f:convertDateTime pattern="#{msg['laboratorio.formato.fecha']}" />
 							</h:outputText>
@@ -115,12 +110,13 @@
 								<h:outputText value="#{msg['laboratorio.resultados.column8']}" />
 							</f:facet>
 							<p:commandLink id="cmlLaboratorioEditar"
-								oncomplete="wvDlgMotivoEditar.show();"
-								process=":formBusqueda:plgDtMotivo">
+								oncomplete="wvDlgLboratorioNuevo.show();"
+								update=":frmNuevoLaboratorio"
+								process=":formBusqueda:plgDtLaboratorio">
 								<h:graphicImage library="images" name="editar.png"
 									styleClass="icon-small" alt="Editar" title="Editar" />
-								<f:setPropertyActionListener value="#{mot}"
-									target="#{laboratorioController.editarLaboratorio}" />
+								<f:setPropertyActionListener value="#{lab}"
+									target="#{laboratorioController.laboratorio}" />
 							</p:commandLink>
 						</p:column>
 
@@ -129,11 +125,11 @@
 								<h:outputText value="#{msg['laboratorio.resultados.column9']}" />
 							</f:facet>
 							<p:commandLink id="cmlLaboratorioEliminar" immediate="true"
-								oncomplete="wvDlgMotivoEliminar.show();">
+								oncomplete="wvDlgLaboratorioEliminar.show();">
 								<h:graphicImage library="images" name="eliminar.png"
 									styleClass="icon-small" alt="Eliminar" title="Eliminar" />
-								<f:setPropertyActionListener value="#{mot}"
-									target="#{laboratorioController.eliminarLaboratorios}" />
+								<f:setPropertyActionListener value="#{lab}"
+									target="#{laboratorioController.laboratorio}" />
 							</p:commandLink>
 						</p:column>
 					</p:dataTable>
@@ -142,6 +138,8 @@
 		</h:form>
 
 		<ui:include src="/pages/secure/NuevoLaboratorio.xhtml" />
+		<ui:include src="/pages/secure/FiltroProfesor.xhtml" />
+		<ui:include src="/pages/secure/EliminarLaboratorio.xhtml" />
 
 
 	</ui:define>

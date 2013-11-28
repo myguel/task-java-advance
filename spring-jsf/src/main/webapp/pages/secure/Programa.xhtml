@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="#{msg['laboratorio.formulario.nuevo']}" modal="true"
+		showEffect="fade" closable="false" resizable="false" hideEffect="fade"
+		widgetVar="wvDlgLParametro">
+
+		<h:form>
+			<p:dataTable id="dtFiltroPrograma" var="programa" value="#{laboratorioController.programaa}"
+				widgetVar="wvFiltroPrograma"
+				emptyMessage="No se encontraron resultados."
+				filteredValue="#{laboratorioController.programasBusqueda}">
+
+				<p:column filterBy="#{profesor.nombre}" headerText="Nombre"
+					footerText="contains" filterMatchMode="contains">
+					<h:outputText value="#{programa.nombre}" />
+				</p:column>
+			</p:dataTable>
+
+		</h:form>
+	</p:dialog>
+	<p:spacer height="10"></p:spacer>
+</ui:composition>
