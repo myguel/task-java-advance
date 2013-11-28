@@ -13,6 +13,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import pe.edu.cibertec.core.domain.Laboratorio;
 import pe.edu.cibertec.core.domain.Programa;
 
 import com.thoughtworks.xstream.XStream;
@@ -24,9 +25,44 @@ public class WriteXml {
 			File.separator+"resources"+File.separator+"pe"+File.separator+"edu"+File.separator+"cibertec"+
 			File.separator+"xml"+File.separator;
 	public static void main(String[] args) throws SQLException, FileNotFoundException {
-		List<Programa> programas = getProgramas();
-		write(programas);
+//		List<Programa> programas = getProgramas();
+		List<Laboratorio> laboratorios = getLaboratorio();
+//		write(programas);
+		writeLaboratorio(laboratorios);
 
+	}
+
+	private static void writeLaboratorio(List<Laboratorio> laboratorios) throws FileNotFoundException {
+		XStream stream=new XStream();		
+		stream.toXML(laboratorios, new FileOutputStream(PATH_OUTPUT+"Laboratorio.xml"));		
+		
+	}
+
+	private static List<Laboratorio> getLaboratorio()throws FileNotFoundException, SQLException {		
+		List<Laboratorio> programas = new ArrayList<Laboratorio>();
+
+		Connection db = ConnectionDb.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = db.prepareStatement("SELECT * FROM laboratorio");
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Laboratorio programa = new Laboratorio();
+				programa.setLaboratorioId(rs.getLong("laboratorio_id"));
+				programa.setNombre(rs.getString("nombre"));
+				programa.setEstado(rs.getBoolean("estado"));
+				programa.setFecha(rs.getDate("fecha"));
+				programas.add(programa);
+
+			}
+		} catch (SQLException e) {
+			logger.info("ERROR"+e.getMessage());
+		} finally {
+			rs.close();
+			ps.close();
+		}
+		return programas;
 	}
 
 	private static void write(List<Programa> programas) throws FileNotFoundException {		

@@ -15,6 +15,7 @@ import org.springframework.test.annotation.Rollback;
 
 import pe.edu.cibertec.common.AbstractJunitTest;
 import pe.edu.cibertec.common.Filtro;
+import pe.edu.cibertec.common.TypesUtil;
 import pe.edu.cibertec.core.domain.Laboratorio;
 import pe.edu.cibertec.core.domain.Profesor;
 import pe.edu.cibertec.core.domain.Programa;
@@ -35,16 +36,15 @@ public class LaboratorioServiceTest extends AbstractJunitTest {
         }
     }
     
-   
+   @Ignore
     @Test
-    @Ignore
     @Rollback(false)
     public void save(){
     	Laboratorio laboratorio=new Laboratorio();
-    	laboratorio.setDuracion(4);
-    	laboratorio.setEstado(true);
+    	laboratorio.setDuracion(2);
+    	laboratorio.setEstado(false);
     	laboratorio.setFecha(new Date());
-    	laboratorio.setNombre("LPIII");
+    	laboratorio.setNombre("EXAMEN FINAL");
     	laboratorio.setPrecio(new BigDecimal(451.5));
     	laboratorio.setProfesor(new Profesor(1));
     	laboratorio.setPrograma(new Programa(1));
@@ -53,16 +53,18 @@ public class LaboratorioServiceTest extends AbstractJunitTest {
     
     
     @Test
-    public void findByParameter(){
+    public void findByParameter() {
     	Filtro filtro=new Filtro();
-    	filtro.setEstado(1);
-    	filtro.setFecha(new Date());
-    	filtro.setNombre("");
-    	filtro.setProfesor(1);
-    	filtro.setPrograma(1);
+    	filtro.setEstado(true);;
+    	filtro.setFecha(TypesUtil.getDateFromString("27/11/2013"));
+//    	filtro.setNombre("L");
+//    	filtro.setProfesor(3);
+//    	filtro.setPrograma(3);
     	List<Laboratorio> laboratorios=laboratorioService.findByParameters(filtro);
     	for (Laboratorio laboratorio : laboratorios) {
-			logger.info(""+laboratorio.getNombre());
+		System.out.println("###############: "+laboratorio.getProfesor().getNombre());
+		System.out.println("###############: "+laboratorio.getPrograma().getNombre());
+		
 		}
     }
 }
