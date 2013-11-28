@@ -41,16 +41,45 @@
 			<div id="content" style="min-height: 358px;">
 				<div class="panel-filtro">
 					<h:panelGroup id="plgFiltro">
-						<p:panelGrid columns="4">
+						<p:panelGrid columns="6">
 							<h:outputLabel styleClass="label-general"
 								value="#{msg['laboratorio.filtro.nombre']}" />
 							<p:inputText styleClass="input-general" maxlength="50"
-								value="#{laboratorioController.laboratorio.nombre}" />
+								value="#{laboratorioController.filtro.nombre}" />
+
+							<h:outputLabel styleClass="label-general"
+								value="#{msg['laboratorio.filtro.programa']}" />
+							<p:selectOneMenu styleClass="select-general"
+								value="#{laboratorioController.filtro.programa}">
+								<f:selectItem itemValue="-1" itemLabel="Seleccione" />
+								<f:selectItems itemLabel="#{programa.nombre}"
+									itemValue="#{programa.programaId}" var="programa"
+									value="#{laboratorioController.programas}"/>
+							</p:selectOneMenu>
+
+							<h:outputLabel styleClass="label-general"
+								value="#{msg['laboratorio.filtro.profesor']}" />
+							<p:selectOneMenu styleClass="select-general"
+								value="#{laboratorioController.filtro.profesor}">
+								<f:selectItem itemValue="-1" itemLabel="Seleccione" />
+								<f:selectItems itemLabel="#{programa.nombre}"
+									itemValue="#{programa.programaId}" var="programa"
+									value="#{laboratorioController.programas}"/>
+							</p:selectOneMenu>
+
+							<h:outputLabel styleClass="label-general"
+								value="#{msg['laboratorio.filtro.fecha']}" />
+
+							<p:calendar styleClass="calendar-general"
+								value="#{laboratorioController.filtro.fecha}"
+								pattern="#{msg['sistema.formato.fecha']}" readonlyInput="true"
+								locale="es">
+							</p:calendar>
 
 							<h:outputLabel styleClass="label-general"
 								value="#{msg['laboratorio.filtro.estado']}" />
 							<p:selectOneMenu styleClass="select-general"
-								value="#{laboratorioController.laboratorio.estado}">
+								value="#{laboratorioController.filtro.estado}">
 								<f:selectItem itemLabel="Seleccione" itemValue="-1" />
 								<f:selectItem itemLabel="Activo" itemValue="A" />
 								<f:selectItem itemLabel="Inactivo" itemValue="I" />

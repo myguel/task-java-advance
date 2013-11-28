@@ -26,7 +26,8 @@
 
 				<h:outputLabel value="#{msg['laboratorio.formulario.profesor']}" />
 
-				<p:selectOneMenu value="#{laboratorioController.laboratorio.profesor.profesorId}">
+				<p:selectOneMenu
+					value="#{laboratorioController.laboratorio.profesor.profesorId}">
 					<f:selectItem itemValue="-1" itemLabel="Seleccione" />
 					<f:selectItems itemLabel="#{profesor.nombre}"
 						itemValue="#{profesor.profesorId}" var="profesor"
@@ -35,20 +36,38 @@
 				</p:selectOneMenu>
 
 				<h:outputLabel value="#{msg['laboratorio.formulario.nombre']}" />
-				<h:inputText value="#{laboratorioController.laboratorio.nombre}" />
+				<h:inputText value="#{laboratorioController.laboratorio.nombre}"
+					required="true" requiredMessage="Nombre: Requerido.">
+					<f:validator validatorId="alfanumericoValidator" />
+					<f:attribute name="campo" value="nombre" />
+				</h:inputText>
 
 				<h:outputLabel value="#{msg['laboratorio.formulario.duracion']}" />
-				<h:inputText value="#{laboratorioController.laboratorio.duracion}" />
+				<h:inputText value="#{laboratorioController.laboratorio.duracion}"
+					required="true" requiredMessage="Nombre: Duracion">
+					<f:validator validatorId="numeroValidator" />
+					<f:attribute name="campo" value="nombre" />
+				</h:inputText>
 
 				<h:outputLabel value="#{msg['laboratorio.formulario.precio']}" />
-				<h:inputText value="#{laboratorioController.laboratorio.precio}" />
+				<h:inputText value="#{laboratorioController.laboratorio.precio}"
+					required="true" requiredMessage="Precio: Requerido.">
+					<f:validator validatorId="numeroDecimalValidator" />
+					<f:attribute name="campo" value="nombre" />
+				</h:inputText>
 
 				<h:outputLabel value="#{msg['laboratorio.formulario.fecha']}" />
-				<p:calendar value="#{laboratorioController.laboratorio.fecha}"
-					pattern="MM/dd/yyyy HH:mm" />
+				<p:calendar styleClass="calendar-general"
+					requiredMessage="Fecha: Requerido."
+					value="#{laboratorioController.laboratorio.fecha}"
+					pattern="#{msg['sistema.formato.fecha']}" readonlyInput="true"
+					locale="es">
+				</p:calendar>
 
-				<!-- 				<h:outputLabel value="#{msg['laboratorio.formulario.estado']}" /> -->
-				<!-- 				<p:selectBooleanCheckbox value="#{laboratorioController.laboratorio.estado}" />   -->
+
+				<h:outputLabel value="#{msg['laboratorio.formulario.estado']}" />
+				<p:selectBooleanCheckbox
+					value="#{laboratorioController.laboratorio.estado}" />
 
 			</h:panelGrid>
 

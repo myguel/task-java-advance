@@ -11,6 +11,7 @@ import javax.faces.bean.ViewScoped;
 import org.apache.log4j.Logger;
 
 import pe.edu.cibertec.common.FacesContextUtil;
+import pe.edu.cibertec.common.Filtro;
 import pe.edu.cibertec.core.domain.Laboratorio;
 import pe.edu.cibertec.core.domain.Profesor;
 import pe.edu.cibertec.core.domain.Programa;
@@ -36,6 +37,7 @@ public class LaboratorioController implements Serializable {
 	ProgramaService programaService;
 	
 	Laboratorio laboratorio;
+	Filtro filtro;
 
 	List<Laboratorio> laboratorios;
 	List<Profesor> profesores;
@@ -51,6 +53,7 @@ public class LaboratorioController implements Serializable {
 	@PostConstruct
 	void inicio() {
 		laboratorio = new Laboratorio();
+		filtro = new Filtro();
 		profesores = profesorService.getProfesors();
 		programas = programaService.getProgramas();
 		laboratorios = laboratorioService.getAll();
@@ -59,11 +62,11 @@ public class LaboratorioController implements Serializable {
 	
 	
 	public void buscarLaboratorios() {
-
+		laboratorios = laboratorioService.getAll(filtro);
 	}
 
 	public void limpiarLaboratorios() {
-
+		filtro = new Filtro();
 	}
 
 	public void editarLaboratorio() {
@@ -163,5 +166,13 @@ public class LaboratorioController implements Serializable {
 	public void setProgramaService(ProgramaService programaService) {
 		this.programaService = programaService;
 	}
-	
+
+	public Filtro getFiltro() {
+		return filtro;
+	}
+
+	public void setFiltro(Filtro filtro) {
+		this.filtro = filtro;
+	}
+
 }

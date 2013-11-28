@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import pe.edu.cibertec.common.Filtro;
 import pe.edu.cibertec.core.dao.LaboratorioDAO;
 import pe.edu.cibertec.core.dao.ProfesorDAO;
 import pe.edu.cibertec.core.dao.ProgramaDAO;
@@ -97,6 +98,12 @@ public class LaboratorioServiceImpl implements LaboratorioService {
 			throw new BusinessException(BusinessException.SEVERITY_LOW, "No existe Programas Registrados");
 		}
 		
+	}
+
+	@Override
+	public List<Laboratorio> getAll(Filtro filtro) {
+		// TODO Auto-generated method stub
+		return programaDAO.getAll(filtro);
 	}
 
 }
