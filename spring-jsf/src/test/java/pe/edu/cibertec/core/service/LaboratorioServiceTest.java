@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 
 import pe.edu.cibertec.common.AbstractJunitTest;
+import pe.edu.cibertec.common.Filtro;
 import pe.edu.cibertec.core.domain.Laboratorio;
 import pe.edu.cibertec.core.domain.Profesor;
 import pe.edu.cibertec.core.domain.Programa;
@@ -24,7 +25,8 @@ public class LaboratorioServiceTest extends AbstractJunitTest {
     @Autowired
     private LaboratorioService laboratorioService;
 
-    @Test    
+    @Test 
+    @Ignore
     public void getAll() {
         List<Laboratorio> laboratorios = laboratorioService.getAll();
 		Assert.assertTrue(laboratorios.size()>0);
@@ -49,4 +51,18 @@ public class LaboratorioServiceTest extends AbstractJunitTest {
     	laboratorioService.save(laboratorio);
     }
     
+    
+    @Test
+    public void findByParameter(){
+    	Filtro filtro=new Filtro();
+    	filtro.setEstado(1);
+    	filtro.setFecha(new Date());
+    	filtro.setNombre("");
+    	filtro.setProfesor(1);
+    	filtro.setPrograma(1);
+    	List<Laboratorio> laboratorios=laboratorioService.findByParameters(filtro);
+    	for (Laboratorio laboratorio : laboratorios) {
+			logger.info(""+laboratorio.getNombre());
+		}
+    }
 }

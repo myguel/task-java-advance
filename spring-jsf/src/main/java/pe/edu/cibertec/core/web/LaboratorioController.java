@@ -62,7 +62,7 @@ public class LaboratorioController implements Serializable {
 	
 	
 	public void buscarLaboratorios() {
-		laboratorios = laboratorioService.getAll(filtro);
+		laboratorios = laboratorioService.findByParameters(filtro);
 	}
 
 	public void limpiarLaboratorios() {

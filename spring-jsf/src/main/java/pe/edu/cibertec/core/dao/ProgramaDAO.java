@@ -10,5 +10,4 @@ public interface ProgramaDAO extends GenericDAO<Programa>{
 
 	List<Programa> getProgramas();
 
-	List<Laboratorio> getAll(Filtro filtro);
 }

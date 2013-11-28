@@ -101,4 +101,12 @@ public class AuditoriaInterceptor {
 		auditoriaService.save(audit);
 	}
     
+	@AfterReturning("execution( * pe.edu.cibertec.core.service.impl.LaboratorioServiceImpl.find*(..))")
+	public void AfterReturning(JoinPoint joinPoint){
+		String method=joinPoint.getSignature().getName();
+		Auditoria audit=new Auditoria();
+		audit.setFecha(Calendar.getInstance().getTime());
+		audit.setValor("SEE : "+method);
+		auditoriaService.save(audit);
+	}
 }

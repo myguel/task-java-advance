@@ -99,11 +99,16 @@ public class LaboratorioServiceImpl implements LaboratorioService {
 		}
 		
 	}
-
+	
 	@Override
-	public List<Laboratorio> getAll(Filtro filtro) {
-		// TODO Auto-generated method stub
-		return programaDAO.getAll(filtro);
+	public List<Laboratorio> findByParameters(Filtro filtro) throws BusinessException {
+		List<Laboratorio> laboratorios=laboratorioDAO.findByParameters(filtro);
+		if(laboratorios.size()>0){
+			return laboratorios;
+		}else{
+			throw new BusinessException(BusinessException.SEVERITY_LOW, "No existe Coincidencias");
+		}
+		
 	}
 
 }
