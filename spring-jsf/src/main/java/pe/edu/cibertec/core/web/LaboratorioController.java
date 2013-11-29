@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import pe.edu.cibertec.common.FacesContextUtil;
 import pe.edu.cibertec.common.Filtro;
@@ -18,6 +19,7 @@ import pe.edu.cibertec.core.domain.Programa;
 import pe.edu.cibertec.core.service.LaboratorioService;
 import pe.edu.cibertec.core.service.ProfesorService;
 import pe.edu.cibertec.core.service.ProgramaService;
+import pe.edu.cibertec.exception.BusinessException;
 
 @ManagedBean(name = "laboratorioController")
 @ViewScoped
@@ -28,23 +30,24 @@ public class LaboratorioController implements Serializable {
 	private static Logger logger = Logger.getLogger(LaboratorioController.class);
 	
 	@ManagedProperty (value = "#{laboratorioService}")
-	LaboratorioService laboratorioService;
+	@Autowired
+	private LaboratorioService laboratorioService;
 	
 	@ManagedProperty (value = "#{profesorService}")
-	ProfesorService profesorService;
+	private ProfesorService profesorService;
 	
 	@ManagedProperty (value = "#{programaService}")
-	ProgramaService programaService;
+	private ProgramaService programaService;
 	
-	Laboratorio laboratorio;
-	Filtro filtro;
+	private Laboratorio laboratorio;
+	private Filtro filtro;
 
-	List<Laboratorio> laboratorios;
-	List<Profesor> profesores;
-	List<Profesor> profesoresBusqueda;
+	private List<Laboratorio> laboratorios;
+	private List<Profesor> profesores;
+	private List<Profesor> profesoresBusqueda;
 	
-	List<Programa> programas;
-	List<Programa> programasBusqueda;
+	private List<Programa> programas;
+	private List<Programa> programasBusqueda;
 
 	public LaboratorioController() {
 		
@@ -56,7 +59,7 @@ public class LaboratorioController implements Serializable {
 		filtro = new Filtro();
 		profesores = profesorService.getProfesors();
 		programas = programaService.getProgramas();
-		laboratorios = laboratorioService.getAll();
+		laboratorios = laboratorioService.findByParameters(filtro);
 		
 	}
 	
@@ -70,11 +73,19 @@ public class LaboratorioController implements Serializable {
 	}
 
 	public void editarLaboratorio() {
-
+			try {
+				laboratorioService.update(laboratorio);
+			} catch (BusinessException e) {
+				FacesContextUtil.error(e.getMessage());
+			}
 	}
 
 	public void eliminarLaboratorios() {
-		laboratorioService.delete(laboratorio);
+		try {
+			laboratorioService.delete(laboratorio);			
+		} catch (BusinessException e) {
+			FacesContextUtil.error(e.getMessage());
+		}
 	}
 
 	public void nuevoLaboratorio() {
@@ -83,10 +94,14 @@ public class LaboratorioController implements Serializable {
 	
 	public void guardarLaboratorio() {
 		try {
-			laboratorioService.save(laboratorio);
+			if(laboratorio.getLaboratorioId()!=null){
+				laboratorioService.update(laboratorio);
+			}else{
+				laboratorioService.save(laboratorio);				
+			}
 			FacesContextUtil.mensajeGuardar();
-		} catch (Exception e) {
-			FacesContextUtil.mensajeError();
+		} catch (BusinessException e) {
+			FacesContextUtil.error(e.getMessage());
 			logger.error(e.getMessage());
 		}
 	}
@@ -101,10 +116,6 @@ public class LaboratorioController implements Serializable {
 
 	public void setLaboratorios(List<Laboratorio> laboratorios) {
 		this.laboratorios = laboratorios;
-	}
-
-	public LaboratorioService getLaboratorioService() {
-		return laboratorioService;
 	}
 
 	public void setLaboratorioService(LaboratorioService laboratorioService) {

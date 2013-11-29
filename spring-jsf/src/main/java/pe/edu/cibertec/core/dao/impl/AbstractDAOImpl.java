@@ -47,10 +47,11 @@ public class AbstractDAOImpl<T extends Serializable>  implements GenericDAO<T>{
 	}
 
 	@Override
-	public T save(final T t) {
+	public void save(final T t) {
+		logger.info("SE ESTA GUARDANDO:: "+t.toString());
 		logger.info("AbstractDAOImpl: save");
 		em.persist(t);
-		return t;
+		
 	}
 
 	@Override
@@ -66,9 +67,10 @@ public class AbstractDAOImpl<T extends Serializable>  implements GenericDAO<T>{
 	}
 
 	@Override
-	public T update(final T t) {
+	public void update(final T t) {
+		logger.info("SE ESTA ACTUALIZANDO:: "+t.toString());
 		logger.info("AbstractDAOImpl: update");
-		return em.merge(t);
+		 em.merge(t);
 	}
 
 	@SuppressWarnings("unchecked")

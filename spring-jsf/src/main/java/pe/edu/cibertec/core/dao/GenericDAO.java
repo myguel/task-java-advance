@@ -10,7 +10,7 @@ public interface  GenericDAO<T extends Serializable>  {
          * <p>Metodo que permite persistir en db</p>
 	 * @param t
 	 */
-     T save(T t);
+     void save(T t);
      /**
 	 * <p>Metodo que permite eliminar un registro en db.</p>
 	 * @param id
@@ -30,5 +30,5 @@ public interface  GenericDAO<T extends Serializable>  {
 	 * <p>Metodo que permite actualizar un registro en db.</p>
 	 * @param t
 	 */
-     T update(T t);
+     void update(T t);
 }

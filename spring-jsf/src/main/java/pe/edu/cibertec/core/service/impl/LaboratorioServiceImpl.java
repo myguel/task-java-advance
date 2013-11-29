@@ -71,7 +71,7 @@ public class LaboratorioServiceImpl implements LaboratorioService {
 	public void delete(Laboratorio laboratorio) {
 
 		if(laboratorio.getLaboratorioId()!=null){
-			laboratorioDAO.delete(laboratorio);
+			laboratorioDAO.delete(laboratorio.getLaboratorioId());
 		}else{			
 			throw new BusinessException(BusinessException.SEVERITY_NORMAL, "Selecione bien el registro a dar de baja.");
 		}
