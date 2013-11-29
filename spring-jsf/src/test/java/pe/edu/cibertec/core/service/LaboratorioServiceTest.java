@@ -54,7 +54,7 @@ public class LaboratorioServiceTest extends AbstractJunitTest {
     @Test
     public void findByParameter() {
     	Filtro filtro=new Filtro();
-    	filtro.setEstado(true);;
+    	filtro.setEnabled(true);;
 //    	filtro.setFecha(TypesUtil.getDateFromString("27/11/2013"));
 //    	filtro.setNombre("L");
 //    	filtro.setProfesor(3);

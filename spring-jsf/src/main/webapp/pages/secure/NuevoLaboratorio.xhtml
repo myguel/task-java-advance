@@ -74,7 +74,8 @@
 			<div class="panel-botones" align="center">
 				<p:commandButton value="#{msg['laboratorio.formulario.btnAceptar']}"
 					id="btnAceptar"
-					action="#{laboratorioController.guardarLaboratorio}" global="false"
+					update="@([id$=dtLaborarios])"
+					action="#{laboratorioController.guardarLaboratorio}" global="false" 
 					oncomplete="wvDlgLboratorioNuevo.hide()">
 					<f:attribute name="tipoVista" value="3" />
 				</p:commandButton>

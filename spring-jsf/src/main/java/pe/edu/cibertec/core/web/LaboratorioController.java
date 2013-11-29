@@ -65,7 +65,39 @@ public class LaboratorioController implements Serializable {
 	
 	
 	public void buscarLaboratorios() {
+		System.out.println(filtro.toString());
+		if(filtro.getEstado().equals("A")){
+			filtro.setEnabled(true);
+		}else if(filtro.getEstado().equals("I")){
+			filtro.setEnabled(false);
+		}else{
+			filtro.setEnabled(null);
+		}
+		if(filtro.getProfesor()!=null&&filtro.getProfesor()>0){
+			filtro.setProfesor(filtro.getProfesor());
+		}else{
+			filtro.setProfesor(null);
+		}
+		if(filtro.getPrograma()!=null&&filtro.getPrograma()>0){
+			filtro.setPrograma(filtro.getPrograma());
+		}else{
+			filtro.setPrograma(null);
+		}
+		if(filtro.getNombre()!=null&&filtro.getNombre().trim()!=""){
+			filtro.setNombre(filtro.getNombre());
+		}else{
+			filtro.setNombre(null);
+		}
+		if(filtro.getFecha()!=null){
+			filtro.setFecha(filtro.getFecha());
+		}else{
+			filtro.setFecha(null);
+		}
+		System.out.println(filtro.toString());
 		laboratorios = laboratorioService.findByParameters(filtro);
+		for (Laboratorio laboratorio:laboratorios) {
+			System.out.println("RESULTADO::: "+laboratorio.getNombre());
+		}
 	}
 
 	public void limpiarLaboratorios() {
@@ -82,9 +114,12 @@ public class LaboratorioController implements Serializable {
 
 	public void eliminarLaboratorios() {
 		try {
-			laboratorioService.delete(laboratorio);			
+			laboratorioService.delete(laboratorio);	
+			FacesContextUtil.mensajeEliminar();
 		} catch (BusinessException e) {
 			FacesContextUtil.error(e.getMessage());
+		}catch (Exception e) {
+			FacesContextUtil.mensajeError();
 		}
 	}
 
@@ -96,13 +131,18 @@ public class LaboratorioController implements Serializable {
 		try {
 			if(laboratorio.getLaboratorioId()!=null){
 				laboratorioService.update(laboratorio);
+				FacesContextUtil.mensajeActualizar();
 			}else{
 				laboratorioService.save(laboratorio);				
+				FacesContextUtil.mensajeGuardar();
 			}
-			FacesContextUtil.mensajeGuardar();
+
 		} catch (BusinessException e) {
 			FacesContextUtil.error(e.getMessage());
-			logger.error(e.getMessage());
+			logger.error("BUSNESS: "+e.getMessage());
+		}catch (Exception e) {
+		logger.info("ERROR: "+e.getMessage());
+		FacesContextUtil.mensajeError();
 		}
 	}
 	

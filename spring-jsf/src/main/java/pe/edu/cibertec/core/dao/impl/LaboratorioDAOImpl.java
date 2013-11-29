@@ -31,13 +31,13 @@ public class LaboratorioDAOImpl extends AbstractDAOImpl<Laboratorio> implements
 		if(filtro.getNombre()!=null){
 			sql.append(" AND l.nombre LIKE :nombre ");			
 		}
-		if(filtro.getPrograma()!=null){
+		if(filtro.getPrograma()!=null&&filtro.getPrograma()>0){
 			sql.append(" AND l.programa.programaId = :programa");			
 		}
-		if(filtro.getProfesor()!=null){
+		if(filtro.getProfesor()!=null&&filtro.getProfesor()>0){
 			sql.append(" AND l.profesor.profesorId = :profesor");			
 		}
-		if(filtro.getEstado()!=null){
+		if(filtro.getEnabled()!=null){
 			sql.append(" AND l.estado = :estado");			
 		}
 		if(filtro.getFecha()!=null){
@@ -47,14 +47,14 @@ public class LaboratorioDAOImpl extends AbstractDAOImpl<Laboratorio> implements
 		if(filtro.getNombre()!=null){
 			query.setParameter("nombre", "%"+filtro.getNombre()+"%");			
 		}
-		if(filtro.getPrograma()!=null){
+		if(filtro.getPrograma()!=null&&filtro.getPrograma()>0){
 			query.setParameter("programa", filtro.getProfesor());			
 		}
-		if(filtro.getProfesor()!=null){
+		if(filtro.getProfesor()!=null&&filtro.getProfesor()>0){
 			query.setParameter("profesor", filtro.getPrograma());			
 		}
-		if(filtro.getEstado()!=null){
-			query.setParameter("estado", filtro.getEstado());			
+		if(filtro.getEnabled()!=null){
+			query.setParameter("estado", filtro.getEnabled());			
 		}
 		if(filtro.getFecha()!=null){
 			query.setParameter("fecha", filtro.getFecha());			

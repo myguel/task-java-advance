@@ -62,9 +62,9 @@
 							<p:selectOneMenu styleClass="select-general"
 								value="#{laboratorioController.filtro.profesor}">
 								<f:selectItem itemValue="-1" itemLabel="Seleccione" />
-								<f:selectItems itemLabel="#{programa.nombre}"
-									itemValue="#{programa.programaId}" var="programa"
-									value="#{laboratorioController.programas}"/>
+								<f:selectItems itemLabel="#{profesor.nombre}"
+									itemValue="#{profesor.profesorId}" var="profesor"
+									value="#{laboratorioController.profesores}"/>
 							</p:selectOneMenu>
 
 							<h:outputLabel styleClass="label-general"

@@ -20,7 +20,7 @@
 					actionListener="#{laboratorioController.eliminarLaboratorios}" ajax="true"
 					styleClass="buton-general"
 					update=":growl, :formBusqueda:plgDtLaboratorio"
-					oncomplete="ocultarDialogSiOperacionEsCorrecta(xhr, status, args, wvDlgLaboratorioEliminar)" />
+					oncomplete="widgetVar.hide()" />
 				<p:spacer width="5" />
 				<p:commandButton value="No" icon="ui-icon ui-icon-close"
 					styleClass="buton-general" onclick="wvDlgLaboratorioEliminar.hide()" />

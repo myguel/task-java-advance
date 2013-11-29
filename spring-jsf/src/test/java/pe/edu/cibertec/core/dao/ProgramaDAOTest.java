@@ -19,7 +19,7 @@ public class ProgramaDAOTest extends AbstractJunitTest {
 	public void save() {
 		Programa programa = new Programa();
 		programa.setEstado(true);
-		programa.setNombre("JAVA WEB DEVELOPER");
+		programa.setNombre("CERTIFICACION ORACLE");
 		programaDAO.save(programa);
 
 	}

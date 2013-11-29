@@ -48,19 +48,19 @@ public class FacesContextUtil {
 	public static void mensajeGuardar(){
 		String guardar = "sistema.mensaje.guardar";
 	    String mensaje = FacesContextUtil.properties(guardar);
-	    FacesContextUtil.error(mensaje);
+	    FacesContextUtil.info(mensaje);
 	}
 	
 	public static void mensajeActualizar(){
 		String actualizar = "sistema.mensaje.actualizar";
 	    String mensaje = FacesContextUtil.properties(actualizar);
-	    FacesContextUtil.error(mensaje);
+	    FacesContextUtil.info(mensaje);
 	}
 	
 	public static void mensajeEliminar(){
 		String actualizar = "sistema.mensaje.eliminar";
 	    String mensaje = FacesContextUtil.properties(actualizar);
-	    FacesContextUtil.error(mensaje);
+	    FacesContextUtil.info(mensaje);
 	}
 	
 	public static void mensajeError(){
@@ -71,9 +71,8 @@ public class FacesContextUtil {
 	
 	public static String properties(String codigo){
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-	    String messageBundleName = facesContext.getApplication().getMessageBundle();
-	    Locale locale = facesContext.getViewRoot().getLocale();
-	    ResourceBundle bundle = ResourceBundle.getBundle(messageBundleName, locale);
-	    return bundle.getString(codigo);
+		ResourceBundle bundle= facesContext.getApplication().getResourceBundle(facesContext,"msg");
+		String message = bundle.getString(codigo);
+	    return message;
 	}
 }

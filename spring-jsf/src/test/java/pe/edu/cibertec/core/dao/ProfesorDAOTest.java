@@ -17,12 +17,12 @@ public class ProfesorDAOTest  extends AbstractJunitTest{
 	@Rollback(false)
 	public void save(){
 		Profesor  t=new Profesor();
-		t.setApellido("YAMUNAUQUE");
-		t.setCorreo("WILLY@gmail.com");
-		t.setDireccion("SIN DIRECCION");
+		t.setApellido("PADILLA");
+		t.setCorreo("JUAN@gmail.com");
+		t.setDireccion("LIMA ");
 		t.setDni("23456789");
 		t.setEstado(true);
-		t.setNombre("WILLY");
+		t.setNombre("JUAN");
 		t.setTelefono("123456789");
 		profesorDAO.save(t);
 	}
