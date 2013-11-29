@@ -7,15 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 @Entity
 @Table(name="usuario")
-@NamedQueries({
-    @NamedQuery(name="Usuario.login", query="SELECT u FROM Usuario u WHERE u.usuario=:usuario")
-})
-public class Usuario implements Serializable {
+public class Rol implements Serializable {
 	/**
 	 * 
 	 */
@@ -30,8 +25,6 @@ public class Usuario implements Serializable {
 	private String password;
 	@Column(name="nombre")
 	private String nombre;
-	@Column(name="usuario_rol")
-	private String rol;
 
 	public Long getUsuarioId() {
 		return usuarioId;
@@ -65,12 +58,4 @@ public class Usuario implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getRol() {
-		return rol;
-	}
-
-	public void setRol(String rol) {
-		this.rol = rol;
-	}
-	
 }

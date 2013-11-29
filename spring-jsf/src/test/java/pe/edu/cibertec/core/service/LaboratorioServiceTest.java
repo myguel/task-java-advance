@@ -15,7 +15,6 @@ import org.springframework.test.annotation.Rollback;
 
 import pe.edu.cibertec.common.AbstractJunitTest;
 import pe.edu.cibertec.common.Filtro;
-import pe.edu.cibertec.common.TypesUtil;
 import pe.edu.cibertec.core.domain.Laboratorio;
 import pe.edu.cibertec.core.domain.Profesor;
 import pe.edu.cibertec.core.domain.Programa;
@@ -56,7 +55,7 @@ public class LaboratorioServiceTest extends AbstractJunitTest {
     public void findByParameter() {
     	Filtro filtro=new Filtro();
     	filtro.setEstado(true);;
-    	filtro.setFecha(TypesUtil.getDateFromString("27/11/2013"));
+//    	filtro.setFecha(TypesUtil.getDateFromString("27/11/2013"));
 //    	filtro.setNombre("L");
 //    	filtro.setProfesor(3);
 //    	filtro.setPrograma(3);

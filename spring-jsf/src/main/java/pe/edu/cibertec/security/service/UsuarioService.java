@@ -1,5 +1,8 @@
 package pe.edu.cibertec.security.service;
 
-public class UsuarioService {
+import pe.edu.cibertec.security.domain.Usuario;
 
+public interface UsuarioService {
+
+	public Usuario obtenerUsuarioLogin(String username);
 }

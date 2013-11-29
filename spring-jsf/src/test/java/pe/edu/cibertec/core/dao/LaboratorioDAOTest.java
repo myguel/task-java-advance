@@ -16,6 +16,8 @@ import pe.edu.cibertec.core.domain.Laboratorio;
 import pe.edu.cibertec.core.domain.Profesor;
 import pe.edu.cibertec.core.domain.Programa;
 import pe.edu.cibertec.core.service.LaboratorioService;
+import pe.edu.cibertec.security.domain.Usuario;
+import pe.edu.cibertec.security.service.UsuarioService;
 
 public class LaboratorioDAOTest extends AbstractJunitTest {
 
@@ -25,8 +27,18 @@ public class LaboratorioDAOTest extends AbstractJunitTest {
     
     @Autowired
     private LaboratorioService laboratorioService;
-
-    @Test    
+    
+    @Autowired
+    private UsuarioService usuarioService;
+    
+    @Test
+    public void obtenerUusario(){
+    	Usuario usuario = usuarioService.obtenerUsuarioLogin("rocio");
+    	System.out.println(usuario.getRol());
+    }
+    
+    @Test 
+    @Ignore
     public void getAll() {
         List<Laboratorio> laboratorios = laboratorioService.getAll();
 		

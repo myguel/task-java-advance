@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="styles.css" />
+	<h:outputScript library="javascript" name="funcionesUtiles.js" target="head" />
+	<title><ui:insert name="title" /></title>
+</h:head>
+<h:body>
+	<div id="main">
+			<div  class="subMainLogin" >
+				<div id="boxForm" class="box">
+					<div class="header">
+						<h2 style="margin-top: 20px;">
+							<span><h:graphicImage library="images" name="logo-divemotor.png"/></span>
+						</h2>
+					</div>
+					<div class="content">
+						<div class="nameForm"><ui:insert name="nameForm" /></div>
+						<ui:insert name="content">
+							<span>Pagina en construccion</span>
+						</ui:insert>
+					</div>
+					<div class="footer">
+						<div class="right">
+							<a href="terminos-condiciones.jsf" rel="boxForm"
+								title="Términos y condiciones">Términos y condiciones</a> <span>&nbsp;</span>
+							<a href="politicas-privacidad.jsf" rel="boxForm"
+								title="Políticas de privacidad">Políticas de privacidad</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</h:body>
+</html>

@@ -16,7 +16,7 @@ public class AlfanumericoValidator implements Validator {
 			String campo = (String) component.getAttributes().get("campo");
 			String alfanumerico = value == null?"": value.toString();
 			if(!Validador.validarAlfanumerico(alfanumerico)) {
-				FacesMessage msg = new FacesMessage("Error de validaci�n", campo + ": Caracter no v�lido.");
+				FacesMessage msg = new FacesMessage("Error de validacion", campo + ": Caracter no valido.");
 				msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 				throw new ValidatorException(msg);
 			}

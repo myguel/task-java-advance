@@ -1,5 +1,9 @@
 package pe.edu.cibertec.security.dao;
 
-public class UsuarioDAO {
+import pe.edu.cibertec.security.domain.Usuario;
+
+public interface UsuarioDAO {
+
+	public Usuario obtenerUsuarioLogin(String username);
 
 }
