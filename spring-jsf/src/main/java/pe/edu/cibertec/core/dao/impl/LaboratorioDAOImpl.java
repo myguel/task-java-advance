@@ -48,10 +48,10 @@ public class LaboratorioDAOImpl extends AbstractDAOImpl<Laboratorio> implements
 			query.setParameter("nombre", "%"+filtro.getNombre()+"%");			
 		}
 		if(filtro.getPrograma()!=null&&filtro.getPrograma()>0){
-			query.setParameter("programa", filtro.getProfesor());			
+			query.setParameter("programa", filtro.getPrograma());			
 		}
 		if(filtro.getProfesor()!=null&&filtro.getProfesor()>0){
-			query.setParameter("profesor", filtro.getPrograma());			
+			query.setParameter("profesor", filtro.getProfesor());			
 		}
 		if(filtro.getEnabled()!=null){
 			query.setParameter("estado", filtro.getEnabled());			

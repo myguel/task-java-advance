@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import pe.edu.cibertec.common.FacesContextUtil;
 import pe.edu.cibertec.common.Filtro;
+import pe.edu.cibertec.common.TypesUtil;
 import pe.edu.cibertec.core.domain.Laboratorio;
 import pe.edu.cibertec.core.domain.Profesor;
 import pe.edu.cibertec.core.domain.Programa;
@@ -89,15 +90,15 @@ public class LaboratorioController implements Serializable {
 			filtro.setNombre(null);
 		}
 		if(filtro.getFecha()!=null){
+//			filtro.setFecha(TypesUtil.getDateToString(filtro.getFecha().toString()));
 			filtro.setFecha(filtro.getFecha());
 		}else{
 			filtro.setFecha(null);
 		}
 		System.out.println(filtro.toString());
 		laboratorios = laboratorioService.findByParameters(filtro);
-		for (Laboratorio laboratorio:laboratorios) {
-			System.out.println("RESULTADO::: "+laboratorio.getNombre());
-		}
+
+
 	}
 
 	public void limpiarLaboratorios() {
