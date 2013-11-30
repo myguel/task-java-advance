@@ -17,10 +17,10 @@
 			<div class="panel-botones">
 				<p:commandButton value="S&#237;" library="images"
 					icon="ui-icon ui-icon-check"
-					actionListener="#{laboratorioController.eliminarLaboratorios}" ajax="true"
+					actionListener="#{laboratorioController.eliminarLaboratorios}" 
 					styleClass="buton-general"
 					update=":growl, :formBusqueda:plgDtLaboratorio"
-					oncomplete="widgetVar.hide()" />
+					oncomplete="wvDlgLaboratorioEliminar.hide()" />
 				<p:spacer width="5" />
 				<p:commandButton value="No" icon="ui-icon ui-icon-close"
 					styleClass="buton-general" onclick="wvDlgLaboratorioEliminar.hide()" />

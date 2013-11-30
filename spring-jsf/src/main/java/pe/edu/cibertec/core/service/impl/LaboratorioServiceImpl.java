@@ -67,7 +67,7 @@ public class LaboratorioServiceImpl implements LaboratorioService {
 	}
 
 	@Override
-	@Transactional(readOnly=false,propagation=Propagation.REQUIRED,rollbackFor=BusinessException.class)
+	@Transactional(readOnly=false,propagation=Propagation.REQUIRED,rollbackFor=Exception.class,noRollbackFor=BusinessException.class)
 	public void delete(Laboratorio laboratorio) {
 
 		if(laboratorio.getLaboratorioId()!=null){

@@ -11,7 +11,7 @@
 
 		<h:form id="frmNuevoLaboratorio" styleClass="ui-widget"
 			prependId="false">
-
+|
 			<h:panelGrid columns="2" style="width:300px">
 				<h:outputLabel value="#{msg['laboratorio.formulario.programa']}" />
 
@@ -74,7 +74,7 @@
 			<div class="panel-botones" align="center">
 				<p:commandButton value="#{msg['laboratorio.formulario.btnAceptar']}"
 					id="btnAceptar"
-					update="@([id$=dtLaborarios])"
+					update=":growl"
 					action="#{laboratorioController.guardarLaboratorio}" global="false" 
 					oncomplete="wvDlgLboratorioNuevo.hide()">
 					<f:attribute name="tipoVista" value="3" />

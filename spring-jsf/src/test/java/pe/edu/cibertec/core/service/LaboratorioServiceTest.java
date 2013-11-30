@@ -26,7 +26,6 @@ public class LaboratorioServiceTest extends AbstractJunitTest {
     private LaboratorioService laboratorioService;
 
     @Test 
-    @Ignore
     public void getAll() {
         List<Laboratorio> laboratorios = laboratorioService.getAll();
 		Assert.assertTrue(laboratorios.size()>0);

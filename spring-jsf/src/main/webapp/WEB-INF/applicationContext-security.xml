@@ -15,10 +15,9 @@
 		<security:intercept-url pattern="/resources/fonts/**"			access="permitAll" />
 		<security:intercept-url pattern="/resources/images/**"			access="permitAll" />
 		<security:intercept-url pattern="/resources/js/**"			access="permitAll" />
-		<security:intercept-url pattern="/resources/templates/**"			access="permitAll" />
-<!-- 		<security:intercept-url pattern="/pages/secure/**"	access="hasRole('ROL_ADMINISTRADOR')" /> -->
-<!-- 		<security:intercept-url pattern="/**" access="hasRole('ROL_ADMINISTRADOR,ROL_USER')" /> -->
-		<security:intercept-url pattern="/pages/secure/**"	access="permitAll" />
+		<security:intercept-url pattern="/resources/templates/**"			access="permitAll" />	
+		<security:intercept-url pattern="/pages/secure/**"	access="hasRole('ROL_ADMINISTRADOR')" />		
+<!-- 		<security:intercept-url pattern="/pages/secure/**"	access="permitAll" /> -->
 		<security:intercept-url pattern="/**" access="permitAll" />
 		<security:form-login login-page="/pages/public/login-interno.xhtml" />
 		<security:logout invalidate-session="true"	logout-url="/"		
